@@ -47,20 +47,19 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" >
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
     <div id="wrapper"><!-- wrapper Starts -->
-    <?php include("includes/sidebar.php");  ?>
+        <?php include("includes/sidebar.php");  ?>
+            <div id="page-wrapper"><!-- page-wrapper Starts -->
+                <div class="container-fluid"><!-- container-fluid Starts -->
+                    <?php
 
-    <div id="page-wrapper"><!-- page-wrapper Starts -->
-
-    <div class="container-fluid"><!-- container-fluid Starts -->
-
-    <?php
-
-        if(isset($_GET['dashboard'])){
-            include("dashboard.php");
-        }
+                        if(isset($_GET['dashboard'])){
+                            include("dashboard.php");
+                        }
 
         if(isset($_GET['insert_product'])){
             include("insert_product.php");
@@ -469,11 +468,7 @@
 
     </div><!-- page-wrapper Ends -->
 
-    </div><!-- wrapper Ends -->
-
-    <script src="js/jquery.min.js"></script>
-
-    <script src="js/bootstrap.min.js"></script>
+    </div><!-- wrapper Ends -->    
 </body>
 </html>
 <?php } ?>
