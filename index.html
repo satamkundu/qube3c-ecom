@@ -15,6 +15,14 @@
 	<script src="js/theme.js"></script>
 	<script src="js/slick.min.js"></script>
 
+	<script>
+		$(document).ready(function(){   
+			$('#fresh_check').change(function(){
+				var c = this.checked ? $("#fresh-sec").show() : $("#fresh-sec").hide();				
+			});
+		});
+	</script>
+
 </head>
 <body>
 
@@ -68,9 +76,9 @@
 		<div class="sub-header">
 	 		<div class="container-fluid">
 	 			<div class="row">
-	 				<div class="col-lg-3">
+	 				<div class="col-lg-3 pr-0">
 	 					<label class="switch">
-				  <input type="checkbox">
+				  <input type="checkbox" id="fresh_check" checked>
 				  <span class="slider round"></span>
 				</label>
 				<span class="fresh-3c px-4">Fresh 3C</span>
@@ -86,28 +94,28 @@
 						  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 						    <ul class="navbar-nav">
 						      <li class="nav-item active">
-						        <a class="nav-link" href="#">Attres for You <span class="sr-only">(current)</span></a>
+						        <a class="nav-link" style="font-size:1rem" href="#">Attres for You <span class="sr-only">(current)</span></a>
 						      </li>
 						      <li class="nav-item">
-						        <a class="nav-link" href="#">Test the Taste</a>
+						        <a class="nav-link" style="font-size:1rem" href="#">Test the Taste</a>
 						      </li>
 						     
 						      <li class="nav-item">
-						        <a class="nav-link" href="#">Turn House to Home</a>
+						        <a class="nav-link" style="font-size:1rem" href="#">Turn House to Home</a>
 						      </li>
 						      <li class="nav-item">
-						        <a class="nav-link" href="#">Gillers & Gold</a>
+						        <a class="nav-link" style="font-size:1rem" href="#">Gillers & Gold</a>
 						      </li>
 
 						        <li class="nav-item">
-						        <a class="nav-link" href="#">Kicking Beverages</a>
+						        <a class="nav-link" style="font-size:1rem" href="#">Kicking Beverages</a>
 						      </li>
 						      <li class="nav-item">
-						        <a class="nav-link" href="#">Arts & You</a>
+						        <a class="nav-link" style="font-size:1rem" href="#">Arts & You</a>
 						      </li>
 
 						      <li class="nav-item">
-						        <a class="nav-link" href="#">Its Called Present</a>
+						        <a class="nav-link" style="font-size:1rem" href="#">Its Called Present</a>
 						      </li>
 						    </ul>
 						   
@@ -320,84 +328,383 @@
 <!-- end todays offer section -->
 
 
+<div id="fresh-sec">
+	<!-- Fresh 3c section -->
+	<section class="fresh3c">
+		<div class="container-fluid">
+			<div class="row py-2">
+				<div class="col-lg-12">
+					<h1 class="fresh-sea-title text-center py-3">Fresh 3c</h1>
+					<div class="slider-fresh-3c">
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<div class="fresh-3c-product-img">
+									<img src="images/fresh-meet.png">
+								</div>
+								<div class="fresh-3c-product-title text-center">
+									<h4>Fresh Meet</h4>
+								</div>
+							</div>
+						</div>
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<div class="fresh-3c-product-img">
+									<img src="images/sea-fish.png">
+								</div>
+								<div class="fresh-3c-product-title text-center">
+									<h4>Sea Fish</h4>
+								</div>
+							</div>
+						</div>
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<div class="fresh-3c-product-img">
+									<img src="images/ready-to-eat.png">
+								</div>
+								<div class="fresh-3c-product-title text-center">
+									<h4>Ready To Eat</h4>
+								</div>
+							</div>
+						</div>
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<div class="fresh-3c-product-img">
+									<img src="images/fresh-meet.png">
+								</div>
+								<div class="fresh-3c-product-title text-center">
+									<h4>Fresh Meet</h4>
+								</div>
+							</div>
+						</div>
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<div class="fresh-3c-product-img">
+									<img src="images/sea-fish.png">
+								</div>
+								<div class="fresh-3c-product-title text-center">
+									<h4>Sea Fish</h4>
+								</div>
+							</div>
+						</div>
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<div class="fresh-3c-product-img">
+									<img src="images/ready-to-eat.png">
+								</div>
+								<div class="fresh-3c-product-title text-center">
+									<h4>Ready To Eat</h4>
+								</div>
+							</div>
+						</div>
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end Fresh 3c section -->
 
-<!-- Fresh 3c section -->
-<section class="fresh3c">
+	<!-- Fresh 3c section -->
+	<section class="fresh3c">
+		<div class="container-fluid">
+			<div class="row py-2">
+				<div class="col-lg-12">
+					<div class="slider-fresh-3c">
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<a href="#category-id" class="d-block mb-4 h-100 category-link">
+									<img class="img-fluid" src="images/fresh3c/12.jpg" alt="">
+									<div class="product-cat-meta text-center text-white">
+										<h2 class="cat-name m-0">Chicken</h2>
+										<p><span class="products-count">12 </span>Products</p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<a href="#category-id" class="d-block mb-4 h-100 category-link">
+									<img class="img-fluid" src="images/fresh3c/muttonchops.jpg" alt="">
+									<div class="product-cat-meta text-center text-white">
+										<h2 class="cat-name  m-0">Mutton</h2>
+										<p><span class="products-count">04 </span>Products</p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<a href="#category-id" class="d-block mb-4 h-100 category-link">
+									<img class="img-fluid" src="images/fresh3c/eggs.jpg" alt="">
+									<div class="product-cat-meta text-center text-white">
+										<h2 class="cat-name m-0">Eggs</h2>
+										<p><span class="products-cat-count">04 </span>Products</p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<a href="#category-id" class="d-block mb-4 h-100 category-link">
+									<img class="img-fluid" src="images/fresh3c/fresh.jpg" alt="">
+									<div class="product-cat-meta text-center text-white">
+										<h2 class="cat-name m-0">Sea Food</h2>
+										<p><span class="products-cat-count">04 </span>Products</p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<a href="#category-id" class="d-block mb-4 h-100 category-link">
+									<img class="img-fluid" src="images/fresh3c/milk.jpg" alt="">
+									<div class="product-cat-meta text-center text-white">
+										<h2 class="cat-name m-0">Milk Products</h2>
+										<p><span class="products-count">12 </span>Products</p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<a href="#category-id" class="d-block mb-4 h-100 category-link">
+									<img class="img-fluid" src="images/fresh3c/tea.jpg" alt="">
+									<div class="product-cat-meta text-center text-white">
+										<h2 class="cat-name  m-0">Tea</h2>
+										<p><span class="products-count">09 </span>Products</p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<a href="#category-id" class="d-block mb-4 h-100 category-link">
+									<img class="img-fluid" src="images/fresh3c/local.png" alt="">
+									<div class="product-cat-meta text-center text-white">
+										<h2 class="cat-name m-0">Local Herbes</h2>
+										<p><span class="products-cat-count">04 </span>Products</p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<a href="#category-id" class="d-block mb-4 h-100 category-link">
+									<img class="img-fluid" src="images/fresh3c/vegetable.jpg" alt="">
+									<div class="product-cat-meta text-center text-white">
+										<h2 class="cat-name m-0">Green Vegies</h2>
+										<p><span class="products-cat-count">04 </span>Products</p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<a href="#category-id" class="d-block mb-4 h-100 category-link">
+									<img class="img-fluid" src="images/fresh3c/oil.jpeg" alt="">
+									<div class="product-cat-meta text-center text-white">
+										<h2 class="cat-name m-0">Oil</h2>
+										<p><span class="products-cat-count">04 </span>Products</p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<a href="#category-id" class="d-block mb-4 h-100 category-link">
+									<img class="img-fluid" src="images/fresh3c/rice.jpg" alt="">
+									<div class="product-cat-meta text-center text-white">
+										<h2 class="cat-name m-0">Rice</h2>
+										<p><span class="products-cat-count">04 </span>Products</p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<a href="#category-id" class="d-block mb-4 h-100 category-link">
+									<img class="img-fluid" src="images/fresh3c/milk.jpg" alt="">
+									<div class="product-cat-meta text-center text-white">
+										<h2 class="cat-name m-0">Home Made Mesala</h2>
+										<p><span class="products-count">12 </span>Products</p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="fresh-3c-item">
+							<div class="fresh-3c-product">
+								<a href="#category-id" class="d-block mb-4 h-100 category-link">
+									<img class="img-fluid" src="images/fresh3c/Chicken-Mince.jpg" alt="">
+									<div class="product-cat-meta text-center text-white">
+										<h2 class="cat-name m-0">Chicken Mince</h2>
+										<p><span class="products-count">20 </span>Products</p>
+									</div>
+								</a>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end Fresh 3c section -->
+
+	<!-- Best Selling section -->
+<section class="best-selling py-3 px-lg-4">
 	<div class="container-fluid">
-	 	<div class="row py-2">
-	 		<div class="col-lg-12">
-	 			<h1 class="fresh-sea-title text-center py-3">Fresh 3c</h1>
-	 			<div class="slider-fresh-3c">
-	 				<div class="fresh-3c-item">
-	 					<div class="fresh-3c-product">
-	 						<div class="fresh-3c-product-img">
-	 							<img src="images/fresh-meet.png">
-	 						</div>
-	 						<div class="fresh-3c-product-title text-center">
-	 							<h4>Fresh Meet</h4>
-	 						</div>
-	 					</div>
-	 				</div>
-	 				<div class="fresh-3c-item">
-	 					<div class="fresh-3c-product">
-	 						<div class="fresh-3c-product-img">
-	 							<img src="images/sea-fish.png">
-	 						</div>
-	 						<div class="fresh-3c-product-title text-center">
-	 							<h4>Sea Fish</h4>
-	 						</div>
-	 					</div>
-	 				</div>
-	 				<div class="fresh-3c-item">
-	 					<div class="fresh-3c-product">
-	 						<div class="fresh-3c-product-img">
-	 							<img src="images/ready-to-eat.png">
-	 						</div>
-	 						<div class="fresh-3c-product-title text-center">
-	 							<h4>Ready To Eat</h4>
-	 						</div>
-	 					</div>
-	 				</div>
-	 				<div class="fresh-3c-item">
-	 					<div class="fresh-3c-product">
-	 						<div class="fresh-3c-product-img">
-	 							<img src="images/fresh-meet.png">
-	 						</div>
-	 						<div class="fresh-3c-product-title text-center">
-	 							<h4>Fresh Meet</h4>
-	 						</div>
-	 					</div>
-	 				</div>
-	 				<div class="fresh-3c-item">
-	 					<div class="fresh-3c-product">
-	 						<div class="fresh-3c-product-img">
-	 							<img src="images/sea-fish.png">
-	 						</div>
-	 						<div class="fresh-3c-product-title text-center">
-	 							<h4>Sea Fish</h4>
-	 						</div>
-	 					</div>
-	 				</div>
-	 				<div class="fresh-3c-item">
-	 					<div class="fresh-3c-product">
-	 						<div class="fresh-3c-product-img">
-	 							<img src="images/ready-to-eat.png">
-	 						</div>
-	 						<div class="fresh-3c-product-title text-center">
-	 							<h4>Ready To Eat</h4>
-	 						</div>
-	 					</div>
-	 				</div>
-	 				
-	 				
-	 			</div>
-	 		</div>
-	 	</div>
+		<div class="row">			
+			<div class="col-lg-12">
+				<h3 class="cat-title">Best Selling</h3>
+			</div>
+		</div>
 	</div>
 </section>
+<section class="best-selling-producacts py-5 my-0 px-lg-4 mb-5">
+	<div class="container-fluid">
+		<div class="row text-center text-lg-left slider-best-selling">
+			<div class="col-lg-2 col-md-4 col-6 p-0">
+				<div class="product-outer">
+				<a href="#product-id" class="d-block mb-4 h-100 product-link">
+						<img class="img-fluid" src="images/fresh3c/checken-kema.png" alt="">
+						<div class="product-sell-meta text-center text-white">
+						<h2 class="sell-product-name m-0">Chicken Chema</h2>
+					
+					</div>
+				</a>
+			</div>
+				</div>
 
-<!-- end Fresh 3c section -->
+				<div class="col-lg-2 col-md-4 col-6 p-0">
+					<div class="product-outer">
+				<a href="#product-id" class="d-block mb-4 h-100 product-link">
+						<img class="img-fluid" src="images/fresh3c/breast.png" alt="">
+						<div class="product-sell-meta text-center text-white">
+						<h2 class="sell-product-name m-0">Chicken Breast Boneless</h2>
+					
+					</div>
+				</a>
+				</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-6 p-0">
+					<div class="product-outer">
+				<a href="#product-id" class="d-block mb-4 h-100 product-link">
+						<img class="img-fluid" src="images/fresh3c/curry.png" alt="">
+						<div class="product-sell-meta text-center text-white">
+						<h2 class="sell-product-name m-0">Mutton Carry Cut</h2>
+					
+					</div>
+				</a>
+			</div>
+				</div>
+				<div class="col-lg-2 col-md-4 col-6 p-0">
+					<div class="product-outer">
+				<a href="#product-id" class="d-block mb-4 h-100 product-link">
+						<img class="img-fluid" src="images/fresh3c/boneless.png" alt="">
+						<div class="product-sell-meta text-center text-white">
+						<h2 class="sell-product-name m-0">Mutton Boneless</h2>
+					
+					</div>
+				</a>
+			</div>
+				</div>
 
+				<div class="col-lg-2 col-md-4 col-6 p-0">
+					<div class="product-outer">
+				<a href="#product-id" class="d-block mb-4 h-100 product-link">
+						<img class="img-fluid" src="images/fresh3c/checken-kema.png" alt="">
+						<div class="product-sell-meta text-center text-white">
+						<h2 class="sell-product-name m-0">Chicken Chema</h2>
+					
+					</div>
+				</a>
+			</div>
+				</div>
+			</div>
+</div>
+</section>
+<!-- Best Selling section -->
+
+
+
+<!-- Best Selling section -->
+<section class="best-selling py-3 px-lg-4">
+	<div class="container-fluid">
+		<div class="row">			
+			<div class="col-lg-12">
+				<h3 class="cat-title">Products You May Like</h3>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="best-selling-producacts py-5 my-0 px-lg-4 mb-5">
+	<div class="container-fluid">
+			  <div class="row text-center text-lg-left slider-best-selling">
+			    
+				
+				<div class="col-lg-2 col-md-4 col-6 p-0">
+					<div class="product-outer">
+				<a href="#product-id" class="d-block mb-4 h-100 product-link">
+					  <img class="img-fluid" src="images/fresh3c/checken-kema.png" alt="">
+					  <div class="product-sell-meta text-center text-white">
+					  <h2 class="sell-product-name m-0">Chicken Chema</h2>
+					
+				  </div>
+				</a>
+			  </div>
+			  </div>
+
+			      <div class="col-lg-2 col-md-4 col-6 p-0">
+			      	<div class="product-outer">
+			      <a href="#product-id" class="d-block mb-4 h-100 product-link">
+			            <img class="img-fluid" src="images/fresh3c/breast.png" alt="">
+			            <div class="product-sell-meta text-center text-white">
+			            <h2 class="sell-product-name m-0">Chicken Breast Boneless</h2>
+			          
+			        </div>
+			      </a>
+			    </div>
+			    </div>
+			     <div class="col-lg-2 col-md-4 col-6 p-0">
+			     	<div class="product-outer">
+			      <a href="#product-id" class="d-block mb-4 h-100 product-link">
+			            <img class="img-fluid" src="images/fresh3c/curry.png" alt="">
+			            <div class="product-sell-meta text-center text-white">
+			            <h2 class="sell-product-name m-0">Mutton Carry Cut</h2>
+			          
+			        </div>
+			      </a>
+			  </div>
+			    </div>
+			      <div class="col-lg-2 col-md-4 col-6 p-0">
+			      	<div class="product-outer">
+			      <a href="#product-id" class="d-block mb-4 h-100 product-link">
+			            <img class="img-fluid" src="images/fresh3c/boneless.png" alt="">
+			            <div class="product-sell-meta text-center text-white">
+			            <h2 class="sell-product-name m-0">Mutton Boneless</h2>
+			          
+			        </div>
+			      </a>
+			  </div>
+			    </div>
+
+			     <div class="col-lg-2 col-md-4 col-6 p-0">
+			    	<div class="product-outer">
+			      <a href="#product-id" class="d-block mb-4 h-100 product-link">
+			            <img class="img-fluid" src="images/fresh3c/checken-kema.png" alt="">
+			            <div class="product-sell-meta text-center text-white">
+			            <h2 class="sell-product-name m-0">Chicken Chema</h2>
+			          
+			        </div>
+			      </a>
+			  </div>
+			    </div>
+			  </div>
+</div>
+</section>
+<!-- Best Selling section -->
+</div>
 
 
 <!-- shop by status section -->

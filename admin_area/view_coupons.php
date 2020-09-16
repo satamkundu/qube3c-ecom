@@ -54,17 +54,17 @@ else {
 
 <thead><!-- thead Starts -->
 
-<tr>
+<tr style="font-size:1.2rem">
 
-<th>Coupon Id : </th>
-<th>Coupon Title : </th>
-<th>Product Title : </th>
-<th>Coupon Price : </th>
-<th>Coupon Code : </th>
-<th>Coupon Limit : </th>
-<th>Coupon Used : </th>
-<th>Delete Coupon : </th>
-<th>Edit Coupon : </th>
+<th>Coupon Id</th>
+<th>Coupon Title</th>
+<th>Product Title</th>
+<th>Coupon Price</th>
+<th>Coupon Code</th>
+<th>Coupon Limit</th>
+<th>Coupon Used</th>
+<th>Delete Coupon</th>
+<th>Edit Coupon</th>
 
 </tr>
 
