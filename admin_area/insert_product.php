@@ -273,8 +273,7 @@
             var array = []; 
             $("input:checkbox[name=variant_mn]:checked").each(function() { 
                 array.push($(this).val()); 
-            }); 
-			// alert(array);
+            });
 			html_data = [];
 			html_data.push('<table class="table" style="width: 100%;" id="variantTable">'+
 				'<tbody>'+				
@@ -311,12 +310,8 @@
         } else {
             // no table row
             count = 1;
-        }
-
+        }	
 		
-		// for (var i = 0; i < arguments.length; i++) {
-		// 	console.log(arguments[i].name);
-		// }
 		html_data = [];
 		html_data.push('<tr id="row'+count+'">');
 		for(var i = 0; i<arguments.length; i++){
