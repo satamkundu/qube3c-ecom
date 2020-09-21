@@ -21,7 +21,7 @@
 				</ol><!-- breadcrumb Ends -->
 			</div><!-- col-lg-12 Ends -->
 		</div><!-- row Ends -->
-
+		
 		<div class="row"><!-- 2 row Starts --> 
 			<div class="col-lg-12"><!-- col-lg-12 Starts -->
 				<div class="panel panel-default"><!-- panel panel-default Starts -->
@@ -30,7 +30,11 @@
 							<i class="fa fa-money fa-fw"></i> Insert Products
 						</h3>
 					</div><!-- panel-heading Ends -->
-					
+					<div class="alert alert-success" role="alert" id="show-response" style="display:none"></div>
+					<div class="text-center" style="display:none" id="loading-sec">
+						<img src="admin_images/assets/loading.gif">
+						<h4>Please Wait.....</h4>
+					</div>
 					<div class="panel-body"><!-- panel-body Starts -->
 						<form class="form-horizontal" id="product_upload_form" method="post" enctype="multipart/form-data"><!-- form-horizontal Starts -->
 							<div class="form-group" ><!-- form-group Starts -->
@@ -247,7 +251,7 @@
 							<div class="form-group" ><!-- form-group Starts -->
 								<label class="col-md-3 control-label" ></label>
 								<div class="col-md-6" >
-									<input type="submit" name="submit" value="Insert Product" class="btn btn-primary form-control" >
+									<input type="submit" id="product_submit" name="submit" value="Insert Product" class="btn btn-primary form-control" >
 								</div>
 							</div><!-- form-group Ends -->
 						</form><!-- form-horizontal Ends -->
@@ -307,6 +311,10 @@
 
             var tableRow;
 			var count;
+
+			$('#product_submit').prop('disabled', true);
+			$("#loading-sec").show();
+			$(".panel-body").hide();
 			$.ajax({
 				url: "process/upload.php",
 				type: "POST",
@@ -315,7 +323,11 @@
 				cache: false,
 				processData:false,
 				success: function(data){
-					console.log(data)
+					$("#show-response").show();
+					$("#loading-sec").hide();
+					$(".panel-body").show();
+					$("#show-response").html(data);
+					$('#product_submit').prop('disabled', false);
 				},
 				error: function(){} 	        
 			});

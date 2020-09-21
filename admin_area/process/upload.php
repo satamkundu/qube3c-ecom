@@ -6,13 +6,7 @@ if($_POST){
     //     print_r($_FILES);
     // }
     // print_r($_POST['variant_original_id']);
-    $variant_original_id = array();
-    $variant_original_id = $_POST['variant_original_id'];
-
-    $variant_original_id_string = implode(",", $variant_original_id);
-
-    $variant_original_data = array();
-    $variant_original_data = $_POST['variant_original_data'];
+    
     
 
     // for($i = 0; $i < count($_POST['variant_original_data']); $i++){
@@ -48,6 +42,16 @@ if($_POST){
     $has_variant = $_POST['has_variant'];
 
     $has_variant = strtolower($has_variant);
+
+    if($has_variant =='yes' ){
+        $variant_original_id = array();
+        $variant_original_id = $_POST['variant_original_id'];
+
+        $variant_original_id_string = implode(",", $variant_original_id);
+
+        $variant_original_data = array();
+        $variant_original_data = $_POST['variant_original_data'];
+    }
 
     $product_img1 = $_FILES['product_img1']['name'];
     $product_img2 = $_FILES['product_img2']['name'];
