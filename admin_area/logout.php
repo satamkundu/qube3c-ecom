@@ -1,9 +1,9 @@
 <?php
-
 session_start();
-
+$user_type = $_SESSION['user_type'];
 session_destroy();
-
-echo "<script>window.open('login.php','_self')</script>";
-
+if($user_type == "1")
+    echo "<script>window.open('../','_self')</script>";
+else
+    echo "<script>window.open('../seller-panel.php','_self')</script>";
 ?>

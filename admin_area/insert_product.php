@@ -32,22 +32,19 @@
 					</div><!-- panel-heading Ends -->
 					
 					<div class="panel-body"><!-- panel-body Starts -->
-						<form class="form-horizontal" method="post" enctype="multipart/form-data"><!-- form-horizontal Starts -->
+						<form class="form-horizontal" id="product_upload_form" method="post" enctype="multipart/form-data"><!-- form-horizontal Starts -->
 							<div class="form-group" ><!-- form-group Starts -->
 								<label class="col-md-3 control-label" > Product Title </label>
 								<div class="col-md-6" >
-									<input type="text" name="product_title" class="form-control" required >
+									<input type="text" id="product_title" name="product_title" class="form-control" required >
 								</div>
 							</div><!-- form-group Ends -->
 
 							<div class="form-group" ><!-- form-group Starts -->
 								<label class="col-md-3 control-label" > Product Url </label>
 								<div class="col-md-6" >
-									<input type="text" name="product_url" class="form-control" required >
-									<br>
-									<p style="font-size:15px; font-weight:bold;">
-										Product Url Example : navy-blue-t-shirt
-									</p>
+									<input type="text" id="product_url" name="product_url" class="form-control" required>									
+									<p style="font-size:1rem;text-align: right; font-weight:bold;">Product Url Example : navy-blue-t-shirt</p>
 								</div>
 							</div><!-- form-group Ends -->
 
@@ -60,7 +57,7 @@
 										while($row_header_menu= mysqli_fetch_array($run_header_menu)){
 											$header_menu_id = $row_header_menu['id'];
 											$header_menu_title = $row_header_menu['menu_item'];
-											echo '<input type="checkbox" name="header_menu[]" id="header_menu'.$header_menu_id.'" value="'.$header_menu_title.'"><label style="cursor:pointer" for="header_menu'.$header_menu_id.'">'.$header_menu_title.'</label>';
+											echo '<input type="checkbox" class="header_menu" name="header_menu[]" id="header_menu'.$header_menu_id.'" value="'.$header_menu_id.'"><label style="cursor:pointer" for="header_menu'.$header_menu_id.'">'.$header_menu_title.'</label>';
 											echo "<br>";
 										}
 									?>
@@ -175,15 +172,17 @@
 														
 
 							<div id="yes_variant" style="padding-bottom:8rem">
-								<div class="col-md-12 text-center">
+								<div class="col-md-12 text-center vari_id">
 									<?php
-										$get_cat = "select * from variant_all";
-										$run_cat = mysqli_query($con,$get_cat);										
+										$get_cat = "select * from variants";
+										$run_cat = mysqli_query($con,$get_cat);	
+										$varient_count = 1;									
 										while ($row_cat=mysqli_fetch_array($run_cat)) {
 											$variant_id = $row_cat['id'];
-											$variant_name = $row_cat['name'];
-											echo '<input type="checkbox" name="variant_mn" id="variant_main'.$variant_id.'" value="'.$variant_name.'"><label style="cursor:pointer" for="variant_main'.$variant_id.'">'.$variant_name.'</label>';
+											$variant_name = $row_cat['variant_name'];
+											echo '<input type="checkbox" onclick="store_variant_id('.$variant_id.')" name="variant_mn" id="variant_main'.$variant_id.'" value="'.$variant_name.'"><label style="cursor:pointer" for="variant_main'.$variant_id.'">'.$variant_name.'</label>';
 											echo str_repeat('&nbsp;',15);
+											$varient_count ++;
 										}										
 									?>
 									<button style="display:inline" type="button" class="btn btn-success" id="add_var">
@@ -192,6 +191,8 @@
 								</div>
 								<div id="var_data"></div>
 							</div>
+
+							<div id="variant_data_store_div"></div>
 
 							<div class="form-group" ><!-- form-group Starts -->
 								<label class="col-md-3 control-label" > Product Keywords </label>
@@ -241,6 +242,8 @@
 								</div>
 							</div><!-- form-group Ends -->
 
+							<input type="hidden" name="user_id" value="<?=(isset($_SESSION['admin_qube_id']))?$_SESSION['admin_qube_id']:'';?>">
+
 							<div class="form-group" ><!-- form-group Starts -->
 								<label class="col-md-3 control-label" ></label>
 								<div class="col-md-6" >
@@ -256,6 +259,11 @@
 </html>
 
 <script>
+	var variant = {
+		'variant_id' : [],
+		'variant_data' : []
+	}
+
 	$(document).ready(function(){
 		$("#yes_variant").hide();
 		$("#no_variant").hide();
@@ -269,33 +277,61 @@
 			}
 		});
 
-		$('#add_var').on('click', function() { 
-            var array = []; 
-            $("input:checkbox[name=variant_mn]:checked").each(function() { 
-                array.push($(this).val()); 
-            });
+		$('#add_var').on('click', function() {
 			html_data = [];
 			html_data.push('<table class="table" style="width: 100%;" id="variantTable">'+
 				'<tbody>'+				
 					'<tr id="row1">');
 			var cnt = 1;
-			for(var i = 0; i<array.length; i++){
-				html_data.push('<td><input type="text" class="form-control" name="'+array[i]+'" id="varient_name'+cnt+'" placeholder="'+array[i]+'"></td>');
+			for(var i = 0; i< variant.variant_id.length; i++){
+				console.log(variant.variant_data[i].value);
+				html_data.push('<td><input type="text" class="form-control" name="'+variant.variant_data[i].value+'[]" id="varient_name'+cnt+'" placeholder="'+variant.variant_data[i].value+'"></td>');
 			}
 			
-			html_data.push('<td><input type="number" class="form-control" name="varient_qty" id="varient_qty1" placeholder="Varient Quantity"></td>'+
-						'<td><input type="number" class="form-control" name="varient_price" id="varient_price1" placeholder="Varient Price"></td>'+
-						'<td><input type="number" class="form-control" name="varient_sale_price" id="varient_sale_price1" placeholder="Varient Sale Price"></td>'+
+			html_data.push('<td><input type="number" class="form-control" name="varient_qty[]" id="varient_qty1" placeholder="Varient Quantity"></td>'+
+						'<td><input type="number" class="form-control" name="varient_price[]" id="varient_price1" placeholder="Varient Price"></td>'+
+						'<td><input type="number" class="form-control" name="varient_sale_price[]" id="varient_sale_price1" placeholder="Varient Sale Price"></td>'+
 					'</tr>'+
 				'</tbody>'+
 			'</table>'+
-			'<button type="button" class="btn btn-success btn-circle" onclick="addRowVariant('+array+')" id="addRowBtn" data-loading-text="Loading...">'+
+			'<button type="button" class="btn btn-success btn-circle" onclick="addRowVariant()" id="addRowBtn" data-loading-text="Loading...">'+
 				'<i class="fa fa-plus" aria-hidden="true"></i>Add Variant</button>');
 
 			$("#var_data").html(html_data.join(""));
+		});		
+
+		$("#product_upload_form").on('submit',function(e){
+			e.preventDefault();
+
+			var tableLength = $("#variantTable tbody tr").length;
+
+            var tableRow;
+			var count;
+			$.ajax({
+				url: "process/upload.php",
+				type: "POST",
+				data:  new FormData(this),
+				contentType: false,
+				cache: false,
+				processData:false,
+				success: function(data){
+					console.log(data)
+				},
+				error: function(){} 	        
+			});
 		});
 	});
-
+	function store_variant_id(id){
+		if (document.getElementById('variant_main'+id).checked){
+			variant.variant_id.push({id});
+			var value = $("#variant_main"+id).val();
+			variant.variant_data.push({ value });
+			input = jQuery('<input type="hidden" name="variant_original_id[]" value="'+id+'">');
+			jQuery('#product_upload_form').append(input);
+			input = jQuery('<input type="hidden" name="variant_original_data[]" value="'+value+'">');
+			jQuery('#product_upload_form').append(input);
+		}
+	}
 
 	function addRowVariant(){
 		var tableLength = $("#variantTable tbody tr").length;
@@ -314,61 +350,15 @@
 		
 		html_data = [];
 		html_data.push('<tr id="row'+count+'">');
-		for(var i = 0; i<arguments.length; i++){
-			html_data.push('<td><input type="text" class="form-control" name="'+arguments[i].name+'" id="varient_name'+count+'" placeholder="'+arguments[i].name+'"></td>');
+		for(var i = 0; i < variant.variant_id.length; i++){
+			html_data.push('<td><input type="text" class="form-control" name="'+variant.variant_data[i].value+'[]" id="varient_name'+count+'" placeholder="'+variant.variant_data[i].value+'"></td>');
 		}		
 		
-		html_data.push('<td><input type="number" class="form-control" name="varient_qty" id="varient_qty'+count+'" placeholder="Varient Quantity"></td>'+
-			'<td><input type="number" class="form-control" name="varient_price" id="varient_price'+count+'" placeholder="Varient Price"></td>'+
-			'<td><input type="number" class="form-control" name="varient_sale_price" id="varient_sale_price'+count+'" placeholder="Varient Sale Price"></td>'+
+		html_data.push('<td><input type="number" class="form-control" name="varient_qty[]" id="varient_qty'+count+'" placeholder="Varient Quantity"></td>'+
+			'<td><input type="number" class="form-control" name="varient_price[]" id="varient_price'+count+'" placeholder="Varient Price"></td>'+
+			'<td><input type="number" class="form-control" name="varient_sale_price[]" id="varient_sale_price'+count+'" placeholder="Varient Sale Price"></td>'+
 		'</tr>');
 		$("#variantTable tbody").append(html_data.join(""));
 	}
 </script>
-
-<?php
-	if(isset($_POST['submit'])){
-		$product_title = $_POST['product_title'];
-		$product_cat = $_POST['product_cat'];
-		$cat = $_POST['cat'];
-		$manufacturer_id = $_POST['manufacturer'];
-		$product_price = $_POST['product_price'];
-		$product_desc = $_POST['product_desc'];
-		$product_keywords = $_POST['product_keywords'];
-
-		$psp_price = $_POST['psp_price'];
-
-		$product_label = $_POST['product_label'];
-
-		$product_url = $_POST['product_url'];
-
-		$product_features = $_POST['product_features'];
-
-		$product_video = $_POST['product_video'];
-
-		$status = "product";
-
-		$product_img1 = $_FILES['product_img1']['name'];
-		$product_img2 = $_FILES['product_img2']['name'];
-		$product_img3 = $_FILES['product_img3']['name'];
-
-		$temp_name1 = $_FILES['product_img1']['tmp_name'];
-		$temp_name2 = $_FILES['product_img2']['tmp_name'];
-		$temp_name3 = $_FILES['product_img3']['tmp_name'];
-
-		move_uploaded_file($temp_name1,"product_images/$product_img1");
-		move_uploaded_file($temp_name2,"product_images/$product_img2");
-		move_uploaded_file($temp_name3,"product_images/$product_img3");
-
-		$insert_product = "insert into products (p_cat_id,cat_id,manufacturer_id,date,product_title,product_url,product_img1,product_img2,product_img3,product_price,product_psp_price,product_desc,product_features,product_video,product_keywords,product_label,status) values ('$product_cat','$cat','$manufacturer_id',NOW(),'$product_title','$product_url','$product_img1','$product_img2','$product_img3','$product_price','$psp_price','$product_desc','$product_features','$product_video','$product_keywords','$product_label','$status')";
-
-		$run_product = mysqli_query($con,$insert_product);
-
-		if($run_product){
-			echo "<script>alert('Product has been inserted successfully')</script>";
-			echo "<script>window.open('index.php?view_products','_self')</script>";
-		}
-
-	}
-?>
 <?php } ?>

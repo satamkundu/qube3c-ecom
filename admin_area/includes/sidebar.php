@@ -2,6 +2,12 @@
     if(!isset($_SESSION['admin_email'])){
         echo "<script>window.open('login.php','_self')</script>";
     }else{
+        $user_sealer = false;
+        if(isset($_SESSION['user_type'])){
+            if($_SESSION['user_type'] > 1){
+                $user_sealer = true;
+            }
+        }
 ?>
 <!-- navbar navbar-inverse navbar-fixed-top Starts -->
 <nav class="navbar navbar-inverse navbar-fixed-top" >
@@ -14,7 +20,8 @@
             <span class="icon-bar" ></span>
             <span class="icon-bar" ></span>
         </button><!-- navbar-ex1-collapse Ends -->
-        <a class="navbar-brand" href="index.php?dashboard" >Admin Panel</a>
+        <a class="navbar-brand" href="index.php?dashboard"><?=($user_sealer)?'Sealer':'Admin'?>Panel</a>
+       
     </div><!-- navbar-header Ends -->
 
     <!-- nav navbar-right top-nav Starts -->
@@ -91,6 +98,24 @@
                 </ul>
             </li><!-- Products li Ends -->
 
+            <li><!-- Brought Togather li Starts -->
+                <a href="#" data-toggle="collapse" data-target="#brought_togather"><!-- anchor Starts -->
+                    <i class="fa fa-fw fa-briefcase"></i> Manage Brought Togather
+                    <i class="fa fa-fw fa-caret-down"></i>
+                </a><!-- anchor Ends -->
+
+                <ul id="brought_togather" class="collapse"><!-- ul collapse Starts -->
+                    <li>
+                        <a href="index.php?insert_brought_togather">Insert Brought Togather</a>
+                    </li>
+
+                    <li>
+                        <a href="index.php?view_brought_togather">View Brought Togather Products</a>
+                    </li>
+                </ul><!-- ul collapse Ends -->
+            </li><!-- Brought Togather li Ends -->
+
+
             <li><!-- manufacturer li Starts -->
                 <a href="#" data-toggle="collapse" data-target="#manufacturers"><!-- anchor Starts -->
                     <i class="fa fa-fw fa-briefcase"></i> Manufacturers
@@ -107,6 +132,8 @@
                     </li>
                 </ul><!-- ul collapse Ends -->
             </li><!-- manufacturer li Ends -->
+
+
 
 
             <li><!-- li Starts -->
@@ -162,7 +189,7 @@
                 </ul><!-- ul collapse Ends -->
             </li><!-- Coupons Section li Ends -->
 
-
+            <?php if(!$user_sealer){ ?>
             <li><!-- contact us li Starts -->
                 <a href="#" data-toggle="collapse" data-target="#contact_us"><!-- anchor Starts -->
                     <i class="fa fa-fw fa-pencil"> </i> Contact Us Section
@@ -180,6 +207,7 @@
                     </li>
                 </ul>
             </li><!-- contact us li Ends -->
+            
 
             <li><!-- about us li Starts -->
                 <a href="index.php?edit_about_us">
@@ -202,13 +230,13 @@
                     </li>
                 </ul><!-- ul collapse Ends -->
             </li><!-- terms li Ends -->
-
+            
             <li>
                 <a href="index.php?view_customers">
                     <i class="fa fa-fw fa-edit"></i> View Customers
                 </a>
             </li>
-
+            <?php } ?>
             <li>
                 <a href="index.php?view_orders">
                     <i class="fa fa-fw fa-list"></i> View Orders
@@ -220,7 +248,8 @@
                     <i class="fa fa-fw fa-pencil"></i> View Payments
                 </a>
             </li>
-
+            
+            <?php if(!$user_sealer){ ?>
             <li><!-- li Starts -->
                 <a href="#" data-toggle="collapse" data-target="#users">
                     <i class="fa fa-fw fa-gear"></i> Users
@@ -238,7 +267,7 @@
                     </li>
                 </ul>
             </li><!-- li Ends -->
-
+            <?php } ?>
 
             <li><!-- li Starts -->
                 <a href="logout.php">

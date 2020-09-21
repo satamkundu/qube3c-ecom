@@ -29,7 +29,10 @@ if(isset($_POST['admin_login'])){
     $run_admin = mysqli_query($con,$get_admin);
     $count = mysqli_num_rows($run_admin);
     if($count==1){
+        $row = mysqli_fetch_assoc($run_admin);    
         $_SESSION['admin_email']=$admin_email;
+        $_SESSION['admin_qube_id'] = $row['admin_id'];
+        $_SESSION['user_type'] = "1";
         echo "<script>alert('You are Logged in into admin panel')</script>";
         echo "<script>window.open('index.php?dashboard','_self')</script>";
     }else {
