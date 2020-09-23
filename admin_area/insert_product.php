@@ -324,6 +324,7 @@
 				processData:false,
 				success: function(data){
 					$("#show-response").show();
+					$('#show-response').delay(5000).fadeOut('slow');
 					$("#loading-sec").hide();
 					$(".panel-body").show();
 					$("#show-response").html(data);

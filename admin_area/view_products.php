@@ -35,7 +35,7 @@ if(!isset($_SESSION['admin_email'])){
                                 <th>Product Date</th>
                                 <th>Product Quantity</th>
                                 <th>Product Delete</th>
-                                <!-- <th>Product Edit</th> -->
+                                <th>Product Edit</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,11 +77,11 @@ if(!isset($_SESSION['admin_email'])){
                                         <i class="fa fa-trash-o"> </i> Delete
                                     </a>
                                 </td>
-                                <!-- <td>
+                                <td>
                                     <a href="index.php?edit_product=<?php echo $pro_id; ?>">
                                         <i class="fa fa-pencil"> </i> Edit
                                     </a>
-                                </td> -->
+                                </td>
                             </tr>
                             <?php } ?>
                         </tbody>
