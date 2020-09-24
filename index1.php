@@ -1,330 +1,207 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Home Qube3c</title>
-	<meta charset="utf-8">
-  	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/slick-theme.css">
-	<link rel="stylesheet" type="text/css" href="css/slick.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
-	<script src="js/jquery.min.js"></script>
-	<!-- <script src="js/popper.min.js"></script> -->
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/theme.js"></script>
-	<script src="js/slick.min.js"></script>
-
-	<script>
-		$(document).ready(function(){   
-			$('#fresh_check').change(function(){
-				var c = this.checked ? $("#fresh-sec").show() : $("#fresh-sec").hide();				
-			});
-		});
-	</script>
-
-</head>
+<?php include_once 'includes/top.php'; ?>
 <body>
+<!-- header -->
 
-	<header>
-		<div class="main-header py-4">
-	      <div class="container-fluid">
-				<div class="row">
-					<div class="col-lg-2 col-sm-6">
-					    <nav class="navbar navbar-expand-lg navbar-light p-0">
-							<ul class="navbar-nav d-flex">
-							    <div class="nav-item dropdown">
-							        <a class="nav-link dropdown-toggle btn-drop-down" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-bars"></i></a>
-							        <div class="dropdown-menu category" aria-labelledby="navbarDropdown">
-							        	<div class="hello"><i class="fa fa-user"></i><span>Hello,</span></div>
-							        	<div class="shop-by-title"><p>Shop By Category</p></div>
-							          	<li><a class="dropdown-item" href="#">Costume</a></li>
-							           	<li><a class="dropdown-item" href="#">Culture</a></li>
-							           	<li><a class="dropdown-item" href="#">Cuisine</a></li>
-							           	<li><a class="dropdown-item" href="#">Fresh Vegetables</a></li>
-							           	<li><a class="dropdown-item" href="#">Fresh Meat</a></li>
-							           	<li><a class="dropdown-item" href="#">Fresh Fish</a></li>
-							        </div>
-							      </div>
-							</ul>
-						    <div class="brand ml-3"><a href="index.html"><img src="images/logo.png"></a></div>
-						</nav>
-					</div>
-				<div class="col-lg-7 col-sm-6">
-					 <form class="form-inline my-2 my-lg-0 form-top">
-				      <input class="form-control mr-sm-2 search-main" type="search" placeholder="Search Quabe3c.com" aria-label="Search">
-				      <button class="btn-form-submitt" type="submit"><i class="fa fa-search"></i></button>
-				    </form>
-				</div>
-		         <div class="col-lg-3 px-5 account col-sm-6">
-		         	<div class="text-right account-info">
-		            <ul class="list-inline">
-		            	<li class="list-inline-item px-3"><a href="#"><i class="fa fa-user-o"></i>Account</a></li>
-		            	<li class="list-inline-item"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-		            	
-		            </ul>
-		          </div>
-		         </div>
-
-				</div>
-			</div>	
-		</div>
-
-				
-
-
-		<div class="sub-header">
-	 		<div class="container-fluid">
-	 			<div class="row">
-	 				<div class="col-lg-3 pr-0">
-	 					<label class="switch">
-				  <input type="checkbox" id="fresh_check" checked>
-				  <span class="slider round"></span>
-				</label>
-				<span class="fresh-3c px-4">Fresh 3C</span>
-				<span class="map-des"><i class="fa fa-map-marker"></i>Delevering to 781005</span>
-	 				</div>
-	 				<div class="col-lg-9">
-	 					<nav class="navbar navbar-expand-lg navbar-light m-0 p-0">
-  
-						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						    <span class="navbar-toggler-icon"></span>
-						  </button>
-
-						  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-						    <ul class="navbar-nav">
-						      <li class="nav-item active">
-						        <a class="nav-link" style="font-size:1rem" href="#">Attres for You <span class="sr-only">(current)</span></a>
-						      </li>
-						      <li class="nav-item">
-						        <a class="nav-link" style="font-size:1rem" href="#">Test the Taste</a>
-						      </li>
-						     
-						      <li class="nav-item">
-						        <a class="nav-link" style="font-size:1rem" href="#">Turn House to Home</a>
-						      </li>
-						      <li class="nav-item">
-						        <a class="nav-link" style="font-size:1rem" href="#">Gillers & Gold</a>
-						      </li>
-
-						        <li class="nav-item">
-						        <a class="nav-link" style="font-size:1rem" href="#">Kicking Beverages</a>
-						      </li>
-						      <li class="nav-item">
-						        <a class="nav-link" style="font-size:1rem" href="#">Arts & You</a>
-						      </li>
-						      <li class="nav-item">
-						        <a class="nav-link" style="font-size:1rem" href="#">Its Called Present</a>
-						      </li>
-						    </ul>
-						   
-						  </div>
-						</nav>
-	 				</div>
-				</div>
-			</div>
-		</div>
-</header>
+<?php include_once 'includes/header.php' ?>
 
 <div class="page px-lg-5">
+	<!-- top hero section -->
+	<section class="top-hero">
+		<div class="container-fluid">
+			<div class="row py-2">
+				<div class="col-lg-12 saving-item">
+					<div class="top-banner-slider">
+						<div class="slider-item">
+							<img src="images/banner.jpg">
+						</div>
+						<div class="slider-item">
+							<img src="images/banner.jpg">
+						</div>
+						<div class="slider-item">
+							<img src="images/banner.jpg">
+						</div>
+						<div class="slider-item">
+							<img src="images/banner.jpg">
+						</div>
+						<div class="slider-item">
+							<img src="images/banner.jpg">
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+	<!-- end top hero section -->
 
-<!-- top hero section -->
-<section class="top-hero">
-<div class="container-fluid">
-	 			<div class="row py-2">
-	 				<div class="col-lg-12 saving-item">
-	 					<div class="top-banner-slider">
-	 						<div class="slider-item">
-	 							<img src="images/banner.jpg">
-	 						</div>
-	 						<div class="slider-item">
-	 							<img src="images/banner.jpg">
-	 						</div>
-	 						<div class="slider-item">
-	 							<img src="images/banner.jpg">
-	 						</div>
-	 						<div class="slider-item">
-	 							<img src="images/banner.jpg">
-	 						</div>
-	 						<div class="slider-item">
-	 							<img src="images/banner.jpg">
-	 						</div>
-	 					</div>
-	 				</div>
-	 				
-	 			</div>
-	 		</div>
-</section>
-<!-- end top hero section -->
+	<!-- today offer section -->
+	<section class="today-offer py-5">
+		<div class="container-fluid">
+			<div class="row py-2">
+				<div class="col-lg-10 col-sm-12 col-md-12">
+					<div class="today-offer-sec">
+						<div class="offer-time p-3">
+						<span class="offter-title">Today's Offer </span><span class="clock-icon px-2"><img src="images/clock-timer.png"></span><span class="offer-timer">00 : 44 : 29 left</span>
+						</div>
+					
 
-<!-- today offer section -->
-<section class="today-offer py-5">
-<div class="container-fluid">
-	 			<div class="row py-2">
-	 				<div class="col-lg-10 col-sm-12 col-md-12">
-	 					<div class="today-offer-sec">
-	 						<div class="offer-time p-3">
-	 						<span class="offter-title">Today's Offer </span><span class="clock-icon px-2"><img src="images/clock-timer.png"></span><span class="offer-timer">00 : 44 : 29 left</span>
-	 					    </div>
-	 					
+					<div class="recent-offer">
+						<!-- <div class="item"> -->
+							<div class="recent-product-inner">
+								<div class="recent-product-img">
+									<img src="images/bambooshoot.png">
+								</div>
+								<div class="recent-product-meta">
+									<h6 class="recent-product-price-title">Bambooshoot with pork pickle</h6>
+									<p class="recent-product-price">Up to 50%+Extra 5% off</p>
+									<div class="add-to-cart">
+										<ul class="to-cart">
+											<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+											<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+										</ul>
+									</div>
 
-	 					<div class="recent-offer">
-	 						<!-- <div class="item"> -->
-	 							<div class="recent-product-inner">
-		 							<div class="recent-product-img">
-		 								<img src="images/bambooshoot.png">
-		 							</div>
-		 							<div class="recent-product-meta">
-		 								<h6 class="recent-product-price-title">Bambooshoot with pork pickle</h6>
-		 								<p class="recent-product-price">Up to 50%+Extra 5% off</p>
-		 								<div class="add-to-cart">
-		 									<ul class="to-cart">
-		 										<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-		 										<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-		 									</ul>
-		 								</div>
+								</div>
+							</div>
 
-	 	 							</div>
- 	 						    </div>
+							<div class="recent-product-inner">
+							<div class="recent-product-img">
+								<img src="images/pepa.png">
+							</div>
+							<div class="recent-product-meta">
+								<h6 class="recent-product-price-title">Pepa</h6>
+								<p class="recent-product-price">From 90$</p>
+								<div class="add-to-cart">
+									<ul class="to-cart">
+										<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+										<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+									</ul>
+								</div>
+
+							</div>
+							</div>
+
 
 								<div class="recent-product-inner">
-	 							<div class="recent-product-img">
-	 								<img src="images/pepa.png">
-	 							</div>
-	 							<div class="recent-product-meta">
-	 								<h6 class="recent-product-price-title">Pepa</h6>
-	 								<p class="recent-product-price">From 90$</p>
-	 								<div class="add-to-cart">
-	 									<ul class="to-cart">
-	 										<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-	 										<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-	 									</ul>
-	 								</div>
+							<div class="recent-product-img">
+								<img src="images/dried-king.png">
+							</div>
+							<div class="recent-product-meta">
+								<h6 class="recent-product-price-title">Dried King Chilly</h6>
+								<p class="recent-product-price">Up to 80%+Extra 10% off</p>
+								<div class="add-to-cart">
+									<ul class="to-cart">
+										<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+										<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+									</ul>
+								</div>
 
- 	 							</div>
- 	 						    </div>
-
-
- 	 						    	<div class="recent-product-inner">
-	 							<div class="recent-product-img">
-	 								<img src="images/dried-king.png">
-	 							</div>
-	 							<div class="recent-product-meta">
-	 								<h6 class="recent-product-price-title">Dried King Chilly</h6>
-	 								<p class="recent-product-price">Up to 80%+Extra 10% off</p>
-	 								<div class="add-to-cart">
-	 									<ul class="to-cart">
-	 										<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-	 										<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-	 									</ul>
-	 								</div>
-
- 	 							</div>
- 	 						    </div>
+							</div>
+							</div>
 
 
 
- 	 						    <div class="recent-product-inner">
-		 							<div class="recent-product-img">
-		 								<img src="images/aromatic.png">
-		 							</div>
-		 							<div class="recent-product-meta">
-		 								<h6 class="recent-product-price-title">Aromatic Assam Joha Rice</h6>
-		 								<p class="recent-product-price">Just 129$</p>
-		 								<div class="add-to-cart">
-		 									<ul class="to-cart">
-		 										<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-		 										<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-		 									</ul>
-		 								</div>
+							<div class="recent-product-inner">
+								<div class="recent-product-img">
+									<img src="images/aromatic.png">
+								</div>
+								<div class="recent-product-meta">
+									<h6 class="recent-product-price-title">Aromatic Assam Joha Rice</h6>
+									<p class="recent-product-price">Just 129$</p>
+									<div class="add-to-cart">
+										<ul class="to-cart">
+											<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+											<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+										</ul>
+									</div>
 
-	 	 							</div>
- 	 						    </div>
+								</div>
+							</div>
 
- 	 							<div class="recent-product-inner">
-		 							<div class="recent-product-img">
-		 								<img src="images/toka.png">
-		 							</div>
-		 							<div class="recent-product-meta">
-		 								<h6 class="recent-product-price-title">Aromatic Assam Joha Rice</h6>
-		 								<p class="recent-product-price">Starting 199$</p>
-		 								<div class="add-to-cart">
-		 									<ul class="to-cart">
-		 										<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-		 										<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-		 									</ul>
-		 								</div>
- 	 								</div>
- 	 						    </div>
-                          
+							<div class="recent-product-inner">
+								<div class="recent-product-img">
+									<img src="images/toka.png">
+								</div>
+								<div class="recent-product-meta">
+									<h6 class="recent-product-price-title">Aromatic Assam Joha Rice</h6>
+									<p class="recent-product-price">Starting 199$</p>
+									<div class="add-to-cart">
+										<ul class="to-cart">
+											<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+											<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						
 
 
- 	 					<div class="recent-product-inner">
-	 							<div class="recent-product-img">
-	 								<img src="images/naga.png">
-	 							</div>
-	 							<div class="recent-product-meta">
-	 								<h6 class="recent-product-price-title">Naga Bracelet</h6>
-	 								<p class="recent-product-price">From 199$</p>
-	 								<div class="add-to-cart">
-	 									<ul class="to-cart">
-	 										<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-	 										<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-	 									</ul>
-	 								</div>
+					<div class="recent-product-inner">
+							<div class="recent-product-img">
+								<img src="images/naga.png">
+							</div>
+							<div class="recent-product-meta">
+								<h6 class="recent-product-price-title">Naga Bracelet</h6>
+								<p class="recent-product-price">From 199$</p>
+								<div class="add-to-cart">
+									<ul class="to-cart">
+										<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+										<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+									</ul>
+								</div>
 
- 	 							</div>
- 	 						    </div>
- 	 					
- 	 						
- 	 					<div class="recent-product-inner">
-	 							<div class="recent-product-img">
-	 								<img src="images/book.png">
-	 							</div>
-	 							<div class="recent-product-meta">
-	 								<h6 class="recent-product-price-title">Book</h6>
-	 								<p class="recent-product-price">From 199$</p>
-	 								<div class="add-to-cart">
-	 									<ul class="to-cart">
-	 										<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-	 										<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-	 									</ul>
-	 								</div>
+							</div>
+							</div>
+					
+						
+					<div class="recent-product-inner">
+							<div class="recent-product-img">
+								<img src="images/book.png">
+							</div>
+							<div class="recent-product-meta">
+								<h6 class="recent-product-price-title">Book</h6>
+								<p class="recent-product-price">From 199$</p>
+								<div class="add-to-cart">
+									<ul class="to-cart">
+										<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+										<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+									</ul>
+								</div>
 
- 	 							</div>
- 	 						    </div>
- 	 						     <div class="recent-product-inner">
-		 							<div class="recent-product-img">
-		 								<img src="images/aromatic.png">
-		 							</div>
-		 							<div class="recent-product-meta">
-		 								<h6 class="recent-product-price-title">Aromatic Assam Joha Rice</h6>
-		 								<p class="recent-product-price">Just 129$</p>
-		 								<div class="add-to-cart">
-		 									<ul class="to-cart">
-		 										<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-		 										<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-		 									</ul>
-		 								</div>
+							</div>
+							</div>
+								<div class="recent-product-inner">
+								<div class="recent-product-img">
+									<img src="images/aromatic.png">
+								</div>
+								<div class="recent-product-meta">
+									<h6 class="recent-product-price-title">Aromatic Assam Joha Rice</h6>
+									<p class="recent-product-price">Just 129$</p>
+									<div class="add-to-cart">
+										<ul class="to-cart">
+											<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+											<li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+										</ul>
+									</div>
 
-	 	 							</div>
- 	 						    </div>
+								</div>
+							</div>
 
- 	 					
+					
 
-	 					</div>
-	 					</div>
-	 				</div>
-	 				<div class="col-lg-2 all-offer-col">
-	 					<div class="all-offer">
-	 						<a href="#"><img src="images/all-offer.png" class="img-responsive"></a>
-	 					</div>
-	 				</div>
-	 				
-	 			</div>
-	 		</div>
-</section>
-<!-- end todays offer section -->
+					</div>
+					</div>
+				</div>
+				<div class="col-lg-2 all-offer-col">
+					<div class="all-offer">
+						<a href="#"><img src="images/all-offer.png" class="img-responsive"></a>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+	<!-- end todays offer section -->
 
 
 <div id="fresh-sec">
@@ -551,79 +428,77 @@
 	<!-- end Fresh 3c section -->
 
 	<!-- Best Selling section -->
-<section class="best-selling py-3 px-lg-4">
-	<div class="container-fluid">
-		<div class="row">			
-			<div class="col-lg-12">
-				<h3 class="cat-title">Best Selling</h3>
+	<section class="best-selling py-3 px-lg-4">
+		<div class="container-fluid">
+			<div class="row">			
+				<div class="col-lg-12">
+					<h3 class="cat-title">Best Selling</h3>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
-<section class="best-selling-producacts py-5 my-0 px-lg-4 mb-5">
-	<div class="container-fluid">
-		<div class="row text-center text-lg-left slider-best-selling">
+	</section>
+
+	<section class="best-selling-producacts py-5 my-0 px-lg-4 mb-5">
+		<div class="container-fluid">
+			<div class="row text-center text-lg-left slider-best-selling">
+				<div class="col-lg-2 col-md-4 col-6 p-0">
+					<div class="product-outer">
+					<a href="#product-id" class="d-block mb-4 h-100 product-link">
+						<img class="img-fluid" src="images/fresh3c/checken-kema.png" alt="">
+						<div class="product-sell-meta text-center text-white">
+							<h2 class="sell-product-name m-0">Chicken Chema</h2>						
+						</div>
+					</a>
+				</div>
+			</div>
+
 			<div class="col-lg-2 col-md-4 col-6 p-0">
 				<div class="product-outer">
-				<a href="#product-id" class="d-block mb-4 h-100 product-link">
-						<img class="img-fluid" src="images/fresh3c/checken-kema.png" alt="">
-						<div class="product-sell-meta text-center text-white">
-						<h2 class="sell-product-name m-0">Chicken Chema</h2>
-					
-					</div>
-				</a>
-			</div>
-				</div>
-
-				<div class="col-lg-2 col-md-4 col-6 p-0">
-					<div class="product-outer">
-				<a href="#product-id" class="d-block mb-4 h-100 product-link">
+					<a href="#product-id" class="d-block mb-4 h-100 product-link">
 						<img class="img-fluid" src="images/fresh3c/breast.png" alt="">
 						<div class="product-sell-meta text-center text-white">
-						<h2 class="sell-product-name m-0">Chicken Breast Boneless</h2>
-					
-					</div>
-				</a>
+							<h2 class="sell-product-name m-0">Chicken Breast Boneless</h2>					
+						</div>
+					</a>
 				</div>
-				</div>
-				<div class="col-lg-2 col-md-4 col-6 p-0">
-					<div class="product-outer">
-				<a href="#product-id" class="d-block mb-4 h-100 product-link">
+			</div>
+
+			<div class="col-lg-2 col-md-4 col-6 p-0">
+				<div class="product-outer">
+					<a href="#product-id" class="d-block mb-4 h-100 product-link">
 						<img class="img-fluid" src="images/fresh3c/curry.png" alt="">
 						<div class="product-sell-meta text-center text-white">
-						<h2 class="sell-product-name m-0">Mutton Carry Cut</h2>
-					
-					</div>
-				</a>
-			</div>
+							<h2 class="sell-product-name m-0">Mutton Carry Cut</h2>
+						</div>
+					</a>
 				</div>
-				<div class="col-lg-2 col-md-4 col-6 p-0">
-					<div class="product-outer">
-				<a href="#product-id" class="d-block mb-4 h-100 product-link">
+			</div>
+
+			<div class="col-lg-2 col-md-4 col-6 p-0">
+				<div class="product-outer">
+					<a href="#product-id" class="d-block mb-4 h-100 product-link">
 						<img class="img-fluid" src="images/fresh3c/boneless.png" alt="">
 						<div class="product-sell-meta text-center text-white">
-						<h2 class="sell-product-name m-0">Mutton Boneless</h2>
-					
-					</div>
-				</a>
-			</div>
+							<h2 class="sell-product-name m-0">Mutton Boneless</h2>
+						</div>
+					</a>
 				</div>
+			</div>
 
-				<div class="col-lg-2 col-md-4 col-6 p-0">
-					<div class="product-outer">
-				<a href="#product-id" class="d-block mb-4 h-100 product-link">
+			<div class="col-lg-2 col-md-4 col-6 p-0">
+				<div class="product-outer">
+					<a href="#product-id" class="d-block mb-4 h-100 product-link">
 						<img class="img-fluid" src="images/fresh3c/checken-kema.png" alt="">
 						<div class="product-sell-meta text-center text-white">
-						<h2 class="sell-product-name m-0">Chicken Chema</h2>
-					
-					</div>
-				</a>
-			</div>
+							<h2 class="sell-product-name m-0">Chicken Chema</h2>
+						</div>
+					</a>
 				</div>
 			</div>
-</div>
-</section>
-<!-- Best Selling section -->
+		</div>
+		</div>
+	</section>
+	<!-- Best Selling section -->
 
 
 
@@ -639,67 +514,67 @@
 </section>
 <section class="best-selling-producacts py-5 my-0 px-lg-4 mb-5">
 	<div class="container-fluid">
-			  <div class="row text-center text-lg-left slider-best-selling">
-			    
+		<div class="row text-center text-lg-left slider-best-selling">
+		
+		
+		<div class="col-lg-2 col-md-4 col-6 p-0">
+			<div class="product-outer">
+		<a href="#product-id" class="d-block mb-4 h-100 product-link">
+				<img class="img-fluid" src="images/fresh3c/checken-kema.png" alt="">
+				<div class="product-sell-meta text-center text-white">
+				<h2 class="sell-product-name m-0">Chicken Chema</h2>
+			
+			</div>
+		</a>
+		</div>
+		</div>
+
+			<div class="col-lg-2 col-md-4 col-6 p-0">
+			<div class="product-outer">
+			<a href="#product-id" class="d-block mb-4 h-100 product-link">
+				<img class="img-fluid" src="images/fresh3c/breast.png" alt="">
+				<div class="product-sell-meta text-center text-white">
+				<h2 class="sell-product-name m-0">Chicken Breast Boneless</h2>
 				
-				<div class="col-lg-2 col-md-4 col-6 p-0">
-					<div class="product-outer">
-				<a href="#product-id" class="d-block mb-4 h-100 product-link">
-					  <img class="img-fluid" src="images/fresh3c/checken-kema.png" alt="">
-					  <div class="product-sell-meta text-center text-white">
-					  <h2 class="sell-product-name m-0">Chicken Chema</h2>
-					
-				  </div>
-				</a>
-			  </div>
-			  </div>
+			</div>
+			</a>
+		</div>
+		</div>
+			<div class="col-lg-2 col-md-4 col-6 p-0">
+			<div class="product-outer">
+			<a href="#product-id" class="d-block mb-4 h-100 product-link">
+				<img class="img-fluid" src="images/fresh3c/curry.png" alt="">
+				<div class="product-sell-meta text-center text-white">
+				<h2 class="sell-product-name m-0">Mutton Carry Cut</h2>
+				
+			</div>
+			</a>
+		</div>
+		</div>
+			<div class="col-lg-2 col-md-4 col-6 p-0">
+			<div class="product-outer">
+			<a href="#product-id" class="d-block mb-4 h-100 product-link">
+				<img class="img-fluid" src="images/fresh3c/boneless.png" alt="">
+				<div class="product-sell-meta text-center text-white">
+				<h2 class="sell-product-name m-0">Mutton Boneless</h2>
+				
+			</div>
+			</a>
+		</div>
+		</div>
 
-			      <div class="col-lg-2 col-md-4 col-6 p-0">
-			      	<div class="product-outer">
-			      <a href="#product-id" class="d-block mb-4 h-100 product-link">
-			            <img class="img-fluid" src="images/fresh3c/breast.png" alt="">
-			            <div class="product-sell-meta text-center text-white">
-			            <h2 class="sell-product-name m-0">Chicken Breast Boneless</h2>
-			          
-			        </div>
-			      </a>
-			    </div>
-			    </div>
-			     <div class="col-lg-2 col-md-4 col-6 p-0">
-			     	<div class="product-outer">
-			      <a href="#product-id" class="d-block mb-4 h-100 product-link">
-			            <img class="img-fluid" src="images/fresh3c/curry.png" alt="">
-			            <div class="product-sell-meta text-center text-white">
-			            <h2 class="sell-product-name m-0">Mutton Carry Cut</h2>
-			          
-			        </div>
-			      </a>
-			  </div>
-			    </div>
-			      <div class="col-lg-2 col-md-4 col-6 p-0">
-			      	<div class="product-outer">
-			      <a href="#product-id" class="d-block mb-4 h-100 product-link">
-			            <img class="img-fluid" src="images/fresh3c/boneless.png" alt="">
-			            <div class="product-sell-meta text-center text-white">
-			            <h2 class="sell-product-name m-0">Mutton Boneless</h2>
-			          
-			        </div>
-			      </a>
-			  </div>
-			    </div>
-
-			     <div class="col-lg-2 col-md-4 col-6 p-0">
-			    	<div class="product-outer">
-			      <a href="#product-id" class="d-block mb-4 h-100 product-link">
-			            <img class="img-fluid" src="images/fresh3c/checken-kema.png" alt="">
-			            <div class="product-sell-meta text-center text-white">
-			            <h2 class="sell-product-name m-0">Chicken Chema</h2>
-			          
-			        </div>
-			      </a>
-			  </div>
-			    </div>
-			  </div>
+			<div class="col-lg-2 col-md-4 col-6 p-0">
+			<div class="product-outer">
+			<a href="#product-id" class="d-block mb-4 h-100 product-link">
+				<img class="img-fluid" src="images/fresh3c/checken-kema.png" alt="">
+				<div class="product-sell-meta text-center text-white">
+				<h2 class="sell-product-name m-0">Chicken Chema</h2>
+				
+			</div>
+			</a>
+		</div>
+		</div>
+		</div>
 </div>
 </section>
 <!-- Best Selling section -->
@@ -1086,74 +961,6 @@
 </div>
 
 
-
-<footer class="main-footer py-5 px-lg-5">
-	<div class="container-fluid">
-	 			<div class="row">
-	 				<div class="col-lg-3 col-sm-6">
-	 					<h5 class="widget-title">Registered Office</h5>
-	 					<p>Zero 9 Communication Private Limited,<br>4th Floor, Parkash Tower,<br>GS Road,ABC, Guwahati , 781005,<br> Assam , India</p>
-	 					<p>CIN:000000000000000</p>
-	 					<p>TEL:0361000000000000</p>
-	 				</div>
-	 				<div class="col-lg-2 col-sm-6 border-row">
-	 					<h5 class="widget-title">Mailing Address</h5>
-	 					<p>Zero 9 Communication Private Limited,<br>4th Floor, Parkash Tower<br>GS Road,ABC<br> Guwahati , 781005<br>Assam ,India</p>
-	 					
-	 				</div>
-	 				<div class="col-lg-2 col-sm-6 pl-lg-5">
-	 					<h5 class="widget-title">Get to Know us</h5>
-	 					<ul>
-	 						<li><a href="#">Sell on Qube3c.com</a></li>
-	 						<li><a href="#">About us</a></li>
-	 						<li><a href="#">Our Story</a></li>
-	 						<li><a href="#">Contact Us</a></li>
-	 						<li><a href="#">Carrers</a></li>
-	 					</ul>
-	 				</div>
-	 				<div class="col-lg-2 col-sm-6">
-	 					<h5 class="widget-title">Help Center</h5>
-	 					<ul>
-	 						<li><a href="#">FAQ</a></li>
-	 						<li><a href="#">Return & Cancelattion</a></li>
-	 						<li><a href="#">Payments</a></li>
-	 						<li><a href="#">Shipping</a></li>
-	 						<li><a href="#">Report Infringment</a></li>
-	 					</ul>
-	 				</div>
-	 				<div class="col-lg-2 col-sm-6">
-	 					<h5 class="widget-title">Our Policies</h5>
-	 					<ul>
-	 						<li><a href="#">Return Policy</a></li>
-	 						<li><a href="#">Privacy Policy</a></li>
-	 						<li><a href="#">Terms of Use</a></li>
-	 						<li><a href="#">Security Policy</a></li>
-	 						<li><a href="#">Sitemap</a></li>
-	 					</ul>
-	 				</div>
-	 				<div class="col-lg-1 col-sm-6">
-	 					<h5 class="widget-title">Socilas</h5>
-	 					<ul>
-	 						<li><a href="#">Press</a></li>
-	 						<li><a href="#">Qube3c Blog</a></li>
-	 						<li><a href="#">Youtube</a></li>
-	 						<li><a href="#">Facebook</a></li>
-	 						<li><a href="#">Instagram</a></li>
-	 						<li><a href="#">Twitter</a></li>
-	 					</ul>
-	 				</div>
-	 			</div>
-	 		</div>
-	 		
-</footer>
-<div class="copy-right">
-	 				<div class="container-fluid">
-	 			<div class="row">
-	 				<div class="col-lg-12">
-	 					<p class="text-center m-0 py-3">© 2002 Quabe3c.com</p>
-	 				</div>
-	 			</div>
-				</div>
-</div>
+<?php include_once 'includes/footer.php'; ?>
 </body>
 </html>
