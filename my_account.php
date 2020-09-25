@@ -3,11 +3,9 @@ session_start();
 if(!isset($_SESSION['customer_email'])){
     echo "<script>window.open('checkout.php','_self')</script>";
 }else {
-include("includes/db.php");
-include("includes/top.php");
-include("includes/header.php");
-// include("functions/functions_1.php");
-//include("includes/main.php");
+    include("includes/db.php");
+    include("includes/top.php");
+    include("includes/header.php");
 ?>
 <div class="container text-center">
     <div class="row">
@@ -44,7 +42,6 @@ include("includes/header.php");
                 <div class="box" ><!-- box Starts -->
                     <?php                    
                         if(isset($_GET['my_orders'])){include("my_orders.php");}
-                        //if(isset($_GET['pay_offline'])) {include("pay_offline.php");}
                         if(isset($_GET['edit_account'])) {include("my_edit_account.php");}
                         if(isset($_GET['change_pass'])){include("my_change_pass.php");}
                         if(isset($_GET['delete_account'])){include("my_delete_account.php");}

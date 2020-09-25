@@ -8,7 +8,7 @@
                             <div class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle btn-drop-down" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-bars"></i></a>
                                 <div class="dropdown-menu category" aria-labelledby="navbarDropdown">
-                                    <div class="hello"><i class="fa fa-user"></i><span>Hello,</span></div>
+                                    <div class="hello"><i class="fa fa-user"></i><span>Hello, <?php if(isset($_SESSION['customer_name'])) echo $_SESSION['customer_name']; ?></span></div>
                                     <div class="shop-by-title"><p>Shop By Category</p></div>
                                     <li><a class="dropdown-item" href="#">Costume</a></li>
                                     <li><a class="dropdown-item" href="#">Culture</a></li>
@@ -31,7 +31,17 @@
                         <div class="col-lg-3 px-5 account col-sm-6">
                         <div class="text-right account-info">
                         <ul class="list-inline">
-                            <li class="list-inline-item px-3"><a href="login.php"><i class="fa fa-user-o"></i>Account</a></li>
+                            <?php 
+                                if(isset($_SESSION['customer_email'])){
+                            ?>
+                            <li class="list-inline-item"><a href="my_account.php"><i class="fa fa-user-o"></i>Account</a></li>
+                            <li class="list-inline-item"><a href="logout.php"><i class="fa fa-sign-out"></i>Logout</a></li>
+                            <?php }else{
+                                ?>
+                                <li class="list-inline-item"><a href="login.php"><i class="fa fa-user-o"></i>Login</a></li>
+                                <li class="list-inline-item"><a href="account.php"><i class="fa fa-user-o"></i>Register</a></li>
+                                <?php
+                            } ?>
                             <li class="list-inline-item"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>                            
                         </ul>
                     </div>

@@ -52,6 +52,8 @@ if(isset($_POST['login'])){
 	$customer_pass = $_POST['c_pass'];
 	$select_customer = "select * from customers where customer_email='$customer_email' AND customer_pass='$customer_pass'";
 	$run_customer = mysqli_query($con,$select_customer);
+	$res = mysqli_fetch_assoc($run_customer);
+	$customer_name = $res['customer_name'];
 	$get_ip = getRealUserIp();
 	$check_customer = mysqli_num_rows($run_customer);
 	$select_cart = "select * from cart where ip_add='$get_ip'";
@@ -63,11 +65,13 @@ if(isset($_POST['login'])){
 	}
 	if($check_customer==1 AND $check_cart==0){
 		$_SESSION['customer_email']=$customer_email;
+		$_SESSION['customer_name']=$customer_name;
 		echo "<script>alert('You are Logged In')</script>";
 		echo "<script>window.open('my_account.php?my_orders','_self')</script>";
 	}
 	else {
 		$_SESSION['customer_email']=$customer_email;
+		$_SESSION['customer_name']=$customer_name;
 		echo "<script>alert('You are Logged In')</script>";
 		echo "<script>window.open('checkout.php','_self')</script>";
 	} 
