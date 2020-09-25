@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkout</title>
+  <meta charset="utf-8">
+  <?php include_once 'includes/top.php'; ?>	
+</head>
+<body>
+  <?php include_once 'includes/header.php'; ?>
+
+
+
+<div class="page px-lg-5 py-5">
+  <div class="checkout-process text-center pb-5"><span class="bag">Bag</span>------------<span class="adrress-checkout">Adress</span>------------<span class="adrress-checkout">Payment</span></div>
+
+<section class="available-offer">
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 ">
+      <div class="available-offer-sec p-4 mb-3">
+      <h3 class="offer-heading"><img src="images/offer-icon.png">Available offers</h3>
+      <p class="offer-des pl-4">10% Instant Discount on with bank of Baroda Creidet Cards on a min spend of Rs: 2500. TCA</p>
+      <a href="#showmore" class="pl-4 show-more-p">Show More <i class="fa fa-angle-down"></i></a>
+    </div>
+
+     <div class="available-offer-sec p-4 mb-5">
+      <h3 class="offer-heading mb-0"><img src="images/bus-icon.png">Yay! <strong>No handling Fee</strong> on this order.</h3>
+    </div>
+
+    </div>
+  </div>
+</div>
+</section>
+
+
+  <!-- start section  for adrress -->
+<section class="address-2-order">
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8 col-checkout-p">
+     
+   <div class="card total-p-checkout">
+    <div class="card-header">
+      <div class="item-count-p">
+        <div class="cont-products">
+          <p class="products-quanitity-in-cart">My Cart (<span id="products-quanitity">2</span>)</p>
+        </div>
+        <div class="products-deliver-id">
+          <div class="form-group d-flex mb-0">
+            <p class="mb-0 d-flex p-deliver-id"><span><img src="images/icon-deliver.png"> </span>Deliver on</p>
+         <select class="form-control m-0" id="sel1">
+        <option>7810052323</option>
+        </select>
+    </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body cart-item-body">
+
+      <!-- cart item -->
+      <div class="row cart-items py-3">
+        <div class="col-lg-8">
+          <div class="products-in-cart">
+            <div class="product-cart-icon mr-4">
+              <div class="cart-p-img text-center"><img src="images/cart-item.png"></div>
+              <div class="cart-p-quantity my-3">
+                <div class="number ">
+                <span class="p-minus">-</span>
+                <input type="text" value="1" class="quantity-p" />
+                <span class="p-plus">+</span>
+              </div>
+              </div>
+            </div>
+             <div class="product-cart-meta">
+             <h5 class="cart-p-name">Ao Naga Naclace from Nagaland</h5>
+             <p class="seller-name">Seller: <span class="owner-name">Kiko's Shop</span></p>
+             <p class="cart-p-price">$220<span class="cart-p-discount">5% off 4 offers available</span></p>
+             <button class="btn-cart-action">Save for later</button><button class="btn-cart-action">Remove</button>
+            </div>
+          </div>
+        </div>
+         <div class="col-lg-4">
+         <p class="deliver-time">Delivery By Tue Sep 22 | <span class="deliver-charge">Free</span></p>
+        </div>
+      </div>
+      <!-- end cart item -->
+
+      <!-- cart item -->
+      <div class="row cart-items py-3">
+        <div class="col-lg-8">
+          <div class="products-in-cart">
+            <div class="product-cart-icon mr-4">
+              <div class="cart-p-img text-center"><img src="images/fresh3c/muttonchops.jpg"></div>
+              <div class="cart-p-quantity my-3">
+                <div class="number ">
+                <span class="p-minus">-</span>
+                <input type="text" value="1" class="quantity-p" />
+                <span class="p-plus">+</span>
+              </div>
+              </div>
+            </div>
+             <div class="product-cart-meta">
+             <h5 class="cart-p-name">Ao Naga Naclace from Nagaland</h5>
+             <p class="seller-name">Seller: <span class="owner-name">Kiko's Shop</span></p>
+             <p class="cart-p-price">$220<span class="cart-p-discount">5% off 4 offers available</span></p>
+             <button class="btn-cart-action">Save for later</button><button class="btn-cart-action">Remove</button>
+            </div>
+          </div>
+        </div>
+         <div class="col-lg-4">
+         <p class="deliver-time">Delivery By Tue Sep 22 | <span class="deliver-charge">Free</span></p>
+        </div>
+      </div>
+      <!-- end cart item -->
+
+
+    </div> 
+    <div class="card-footer cart-footer text-right"> 
+      <button class="place-order-btn">Place Order</button>
+    </div>
+  </div>
+
+      
+
+    </div>
+
+
+
+
+ <div class="col-lg-4 apply-copons-col">
+ <div class="table-responsive py-3">
+  <table class="table">
+      <thead>
+         <tr>
+              <th colspan="2">COUPONS</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td class="apply-copons"><img src="images/coupen-icon.png">Apply Coupon</td>
+              <td><button class="apply-coupon">Apply</button></td>
+          </tr>  
+      </tbody>
+  </table>
+
+</div>
+
+
+<div class="table-responsive">
+  <table class="table">
+      <thead>
+         <tr>
+              <th colspan="2">Price Detail (1 item)</th>
+          </tr>
+      </thead>
+
+      <tbody>
+          <tr>
+              <td>Toal MRP</td>
+              <td>€24.00</td>
+          </tr>
+          <tr>
+              <td>Discount on MRP</td>
+              <td class="Discount-onmrp">€4.56</td>
+          </tr>
+           <tr>
+              <td>Coupen Discount</td>
+              <td class="apply-coupon-td">Apply Coupen</td>
+          </tr>
+          <tr>
+              <td>Plateform Handling Fee</td>
+              <td>Free</td>
+          </tr>
+          
+            
+              <tr class="total-price-coupons">
+              <td>Total</td>
+              <td>€300</td>
+              </tr>
+             <tr colspan="2">
+              <td colspan="2"><button class="place-order-btn">Place Order</button></td>
+              
+          </tr>
+      </tbody>
+  </table>
+
+</div>
+    </div>
+   
+  </div>
+</div>
+  
+</section>
+
+</div>
+
+<?php include_once 'includes/footer.php'; ?>
+
+</body>
+</html>

@@ -24,10 +24,11 @@
 						</div>
 						<div class="form-group pass_show"> 							
 							<input type="password" class="form-control" id="pass" name="c_pass" placeholder="Create a password" required> 
+							<p id="pass_type"></p>
 						</div> 
-						<div class="form-group pass_show"> 
+						<!-- <div class="form-group pass_show"> 
 							<input type="password" class="form-control" id="con_pass" placeholder="Confirm password" required> 
-						</div> 
+						</div>  -->
 						<!-- <div class="form-group mb-4">
 							<input type="checkbox" id="signed-in" class="checkbox-custom" checked="checked">
 							<label for="signed-in" class="label-check">Keep me <a href="#sign">Signed in</a><br><span class="pl-5">Uncheck if using public device</span></label>
@@ -44,7 +45,7 @@
 					<div class="already-account text-center mt-5">
 						<p>Already have an account?</p>
 						<div class="form-group"> 
-						<a href="login.html"><button class="form-control sign-in-btn">Sign in</button></a>
+						<a href="login.php"><button class="form-control sign-in-btn">Sign in</button></a>
 					</div>
 					</div>
 				</div>
@@ -66,7 +67,6 @@ $(document).ready(function(){
 
 function check_pass() {
 	var val=document.getElementById("pass").value;
-	var meter=document.getElementById("meter");
 	var no=0;
 
 	if(val!=""){
@@ -109,6 +109,7 @@ function check_pass() {
 
 <?php
 if(isset($_POST['register'])){		
+	include_once 'functions/functions.php';
 	$c_name = $_POST['c_name'];
 	$c_email = $_POST['c_email'];
 	$c_pass = $_POST['c_pass'];
@@ -129,7 +130,7 @@ if(isset($_POST['register'])){
 	<h2>
 	Email Confirmation By staging.qube3c.com $c_name
 	</h2>
-	<a href='https://staging.qube3c.com/customer/my_account.php?$customer_confirm_code'>
+	<a href='https://staging.qube3c.com/confirm_email.php?$customer_confirm_code'>
 	Click Here To Confirm Email
 	</a>
 	";
