@@ -46,64 +46,58 @@
 	// getPro function Starts //
 	function getPro(){
 		global $db;
-		$get_products = "select * from products order by 1 DESC LIMIT 0,8";
+		$get_products = "select * from products order by 1 DESC LIMIT 0,20";
 		$run_products = mysqli_query($db,$get_products);
 		while($row_products=mysqli_fetch_array($run_products)){
-			$pro_id = $row_products['product_id'];
+			$pro_id = $row_products['id'];
 			$pro_title = $row_products['product_title'];
-			$pro_price = $row_products['product_price'];
+			//$pro_price = $row_products['product_price'];
 			$pro_img1 = $row_products['product_img1'];
-			$pro_label = $row_products['product_label'];
-			$manufacturer_id = $row_products['manufacturer_id'];
-			$get_manufacturer = "select * from manufacturers where manufacturer_id='$manufacturer_id'";
-			$run_manufacturer = mysqli_query($db,$get_manufacturer);
-			$row_manufacturer = mysqli_fetch_array($run_manufacturer);
-			$manufacturer_name = $row_manufacturer['manufacturer_title'];
-			$pro_psp_price = $row_products['product_psp_price'];
-			$pro_url = $row_products['product_url'];
-			if($pro_label == "Sale" or $pro_label == "Gift"){
-				$product_price = "<del> $$pro_price </del>";
-				$product_psp_price = "| $$pro_psp_price";
-			}else{
-				$product_psp_price = "";
-				$product_price = "$$pro_price";
-			}
-			if($pro_label == ""){
-			}else{
-				$product_label = "
-				<a class='label sale' href='#' style='color:black;'>
-					<div class='thelabel'>$pro_label</div>
-					<div class='label-background'> </div>
-				</a>";
-			}
-			echo "
-			<div class='col-md-4 col-sm-6 single' >
-				<div class='product' >
-					<a href='$pro_url' >
-						<img src='admin_area/product_images/$pro_img1' class='img-responsive' >
+			//$pro_label = $row_products['product_label'];
+			//$manufacturer_id = $row_products['manufacturer_id'];
+			//$get_manufacturer = "select * from manufacturers where manufacturer_id='$manufacturer_id'";
+			//$run_manufacturer = mysqli_query($db,$get_manufacturer);
+			//$row_manufacturer = mysqli_fetch_array($run_manufacturer);
+			//$manufacturer_name = $row_manufacturer['manufacturer_title'];
+			//$pro_psp_price = $row_products['product_psp_price'];
+			$get_pro = "select * from product_master where product_id='$pro_id'";
+			$run_pro = mysqli_query($db,$get_pro);
+			$row_pro = mysqli_fetch_array($run_pro);
+			$pro_price = $row_pro['default_price'];
+			$pro_url = $row_products['product_url'];			
+			// if($pro_label == "Sale" or $pro_label == "Gift"){
+			// 	$product_price = "<del> $$pro_price </del>";
+			// 	$product_psp_price = "| $$pro_psp_price";
+			// }else{
+			// 	//$product_psp_price = "";
+			// 	$product_price = "$pro_price";
+			// }
+			// if($pro_label == ""){
+			// }else{				
+			// }
+			echo '<div class="col-md-3">
+            <figure class="card card-product">
+				<div class="img-wrap">
+					<a href='.$pro_url.' >
+						<img src="admin_area/product_images/'.$pro_img1.'">
 					</a>
-					<div class='text' >
-						<center>
-							<p class='btn btn-primary'> $manufacturer_name </p>
-						</center>
-						<hr>
-						<h3><a href='$pro_url' >$pro_title</a></h3>
-						<p class='price' > $product_price $product_psp_price </p>
-						<p class='buttons' >
-							<a href='$pro_url' class='btn btn-default' >View details</a>
-							<a href='$pro_url' class='btn btn-primary'>
-								<i class='fa fa-shopping-cart'></i> Add to cart
-							</a>
-						</p>
-					</div>
-					$product_label
-				</div>
-			</div>
-			";
+                </div>
+                <figcaption class="info-wrap">
+                    <h6 class="title text-dots"><a href="'.$pro_url.'">'.$pro_title.'</a></h6>
+                    <div class="action-wrap">
+						<a href="'.$pro_url.'" class="btn btn-primary btn-sm float-right"> View details </a>
+						<a href="'.$pro_url.'" class="btn btn-primary btn-sm float-right mr-2"> Add to cart </a>
+                        <div class="price-wrap h5">
+                            <span class="price-new">'.$pro_price.'</span>                            
+                        </div> 
+                    </div>
+                </figcaption>
+            </figure>
+		</div>';
 		}
 	}
 	// getPro function Ends //
-
+	// <del class="price-old">$1980</del>
 
 	/// getProducts Function Starts ///
 	function getProducts(){

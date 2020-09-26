@@ -1,2 +1,5 @@
 DirectoryIndex  fresh3c.php
 Options -Indexes
+
+RewriteEngine On
+RewriteRule ^([0-9A-ZA-Z-]+)$ product-detail.php?pro_id=$1 [QSA,NC,L]

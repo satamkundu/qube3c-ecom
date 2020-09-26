@@ -1,10 +1,10 @@
-<?php session_start(); ?>
+<?php include_once 'includes/top.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Login Qube3c</title>
 	<meta charset="utf-8">
-	<?php include_once 'includes/top.php'; ?>
+	
 </head>
 <body>
 	<?php include_once 'includes/header.php'; ?>
