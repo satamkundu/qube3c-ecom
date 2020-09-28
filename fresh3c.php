@@ -103,7 +103,20 @@
 							</div>
 
 						<div class="row text-center text-lg-left">
+<?php
+	include_once 'includes/db.php';
+	$sql = "SELECT * FROM fresh_3c_items";
+	$res = mysqli_query($con, $sql);
+	if(mysqli_num_rows($res)>0){
+		while($row = mysqli_fetch_assoc($res)){
+			$title = $row['title'];
+			$id = $row['id'];
+			$sql = "SELECT COUNT() FROM fresh_3c_products";
+			$res = mysqli_query($con, $sql);
+		}
+	}
 
+?>
 							<div class="col-lg-3 col-md-4 col-6 mb-5">
 							<a href="#category-id" class="d-block mb-4 h-100 category-link">
 									<img class="img-fluid" src="images/fresh3c/12.jpg" style="height: fit-content;" alt="">
@@ -113,6 +126,7 @@
 								</div>
 							</a>
 							</div>
+
 							<div class="col-lg-3 col-md-4 col-6 mb-5">
 							<a href="#category-id" class="d-block mb-4 h-100 category-link">
 									<img class="img-fluid" src="images/fresh3c/muttonchops.jpg" alt="">

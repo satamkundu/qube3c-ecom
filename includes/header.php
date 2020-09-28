@@ -1,3 +1,4 @@
+<?php include_once 'functions/functions.php'; ?>
 <header>
     <div class="main-header py-4">
         <div class="container-fluid">
@@ -19,7 +20,7 @@
                                 </div>
                             </div>
                         </ul>
-                        <div class="brand ml-3"><a href="index.html"><img src="images/logo.png"></a></div>
+                        <div class="brand ml-3"><a href="index.php"><img src="images/logo.png"></a></div>
                     </nav>
                 </div>
                 <div class="col-lg-7 col-sm-6">
@@ -42,13 +43,41 @@
                                 <li class="list-inline-item"><a href="account.php"><i class="fa fa-user-o"></i>Register</a></li>
                                 <?php
                             } ?>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>                            
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span class='badge badge-warning' id='lblCartCount'> <?php items(); ?> </span>
+                                </a>
+                            </li>                            
                         </ul>
                     </div>
                 </div>
             </div>
         </div>	
     </div>
+
+    <style>
+        .badge {
+            padding-left: 9px;
+            padding-right: 9px;
+            -webkit-border-radius: 9px;
+            -moz-border-radius: 9px;
+            border-radius: 9px;
+            }
+
+            .label-warning[href],
+            .badge-warning[href] {
+            background-color: #c67605;
+            }
+            #lblCartCount {
+                font-size: 12px;
+                background: #ff0000;
+                color: #fff;
+                padding: 0 5px;
+                vertical-align: top;
+                margin-left: -10px; 
+            }
+    </style>
 
     <div class="sub-header">
         <div class="container-fluid">

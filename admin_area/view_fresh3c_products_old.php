@@ -7,7 +7,7 @@ if(!isset($_SESSION['admin_email'])){
     <div class="col-lg-12"><!-- col-lg-12 Starts -->
         <ol class="breadcrumb"><!-- breadcrumb Starts -->
             <li class="active">
-                <i class="fa fa-dashboard"></i> Dashboard / View Products Categories
+                <i class="fa fa-dashboard"></i> Dashboard / View Fresh3c Products
             </li>
         </ol><!-- breadcrumb Ends -->
     </div><!-- col-lg-12 Ends -->
@@ -18,7 +18,7 @@ if(!isset($_SESSION['admin_email'])){
         <div class="panel panel-default"><!-- panel panel-default Starts -->
             <div class="panel-heading"><!-- panel-heading Starts -->
                 <h3 class="panel-title"><!-- panel-title Starts -->
-                    <i class="fa fa-money fa-fw"> </i> View Products Categories
+                    <i class="fa fa-money fa-fw"> </i> View Fresh3c Products
                 </h3><!-- panel-title Ends -->
             </div><!-- panel-heading Ends -->
             <div class="panel-body"><!-- panel-body Starts -->
@@ -26,8 +26,9 @@ if(!isset($_SESSION['admin_email'])){
                     <table class="table table-bordered table-hover table-striped"><!-- table table-bordered table-hover table-striped Starts -->
                         <thead><!-- thead Starts -->
                             <tr>
-                                <th>Product Category Id</th>
-                                <th>Product Category Title</th>
+                                <th>Product Category</th>
+                                <th>Product Product Title</th>
+                                <th>Product Price</th>
                                 <th>Delete Product Category</th>
                                 <th>Edit Product Category</th>
                             </tr>

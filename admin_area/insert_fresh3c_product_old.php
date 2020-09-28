@@ -24,22 +24,46 @@ if(!isset($_SESSION['admin_email'])){
             <div class="panel-body" ><!-- panel-body Starts -->
                 <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" ><!-- form-horizontal Starts -->
                     <div class="form-group" ><!-- form-group Starts -->
-                        <label class="col-md-3 control-label" >Product Category Title</label>
+                        <label class="col-md-3 control-label" >Choose Fresh3c Product Category</label>
                         <div class="col-md-6" >
-                            <input type="text" name="p_cat_title" class="form-control" >
+                            <select name="item_id" class="form-control"> 
+                                <option value="0">Choose Category</option>
+                                <?php
+                                $sql = "SELECT * FROM `fresh_3c_items`";
+                                $res = mysqli_query($con,$sql);
+                                if(mysqli_num_rows($res) >0){
+                                    while($row = mysqli_fetch_assoc($res)){
+                                        echo '<option value="'.$row['id'].'">'.$row['title'].'</option>';
+                                    }
+                                }
+                                ?>
+                            </select>
                         </div>
                     </div><!-- form-group Ends -->
+
                     <div class="form-group" ><!-- form-group Starts -->
-                        <label class="col-md-3 control-label" >Show as Top Product Category</label>
+                        <label class="col-md-3 control-label" >Product Title</label>
                         <div class="col-md-6" >
-                            <input type="radio" name="p_cat_top" value="yes" >
-                            <label> Yes </label>
-                            <input type="radio" name="p_cat_top" value="no" >
-                            <label> No </label>
+                            <input type="text" name="p_title" class="form-control" >
                         </div>
                     </div><!-- form-group Ends -->
+
                     <div class="form-group" ><!-- form-group Starts -->
-                        <label class="col-md-3 control-label" > Select Product Category Image</label>
+                        <label class="col-md-3 control-label" >Product Price</label>
+                        <div class="col-md-6" >
+                            <input type="number" name="p__price" class="form-control" >
+                        </div>
+                    </div><!-- form-group Ends -->
+
+                    <div class="form-group" ><!-- form-group Starts -->
+                        <label class="col-md-3 control-label" >Product Price Unit</label>
+                        <div class="col-md-6" >
+                            <input type="text" name="p_price_unit" class="form-control" >
+                        </div>
+                    </div><!-- form-group Ends -->
+                    
+                    <div class="form-group" ><!-- form-group Starts -->
+                        <label class="col-md-3 control-label" > Select Product Image</label>
                         <div class="col-md-6" >
                             <input type="file" name="p_cat_image" class="form-control" >
                         </div>
@@ -57,16 +81,19 @@ if(!isset($_SESSION['admin_email'])){
 </div><!-- 2 row Ends -->
 <?php
 if(isset($_POST['submit'])){
-    $p_cat_title = $_POST['p_cat_title'];
-    $p_cat_top = $_POST['p_cat_top'];
+    $item_id = $_POST['item_id'];
+    $p_title = $_POST['p_title'];
+    $p__price = $_POST['p__price'];
+    $p_price_unit = $_POST['p_price_unit'];
     $p_cat_image = $_FILES['p_cat_image']['name'];
     $temp_name = $_FILES['p_cat_image']['tmp_name'];
     move_uploaded_file($temp_name,"other_images/$p_cat_image");
-    $insert_p_cat = "insert into product_categories (p_cat_title,p_cat_top,p_cat_image) values ('$p_cat_title','$p_cat_top','$p_cat_image')";
+    $insert_p_cat = "INSERT INTO `fresh_3c_products` (`item_id`, `product_name`, `product_price`, `price_unit`,`image_path`) 
+    VALUES ('$item_id', ' $p_title', '$p__price', '$p_price_unit','$p_cat_image')";
     $run_p_cat = mysqli_query($con,$insert_p_cat);
     if($run_p_cat){
-        echo "<script>alert('New Product Category Has been Inserted')</script>";
-        echo "<script>window.open('index.php?view_p_cats','_self')</script>";
+        echo "<script>alert('New Product Has been Inserted')</script>";
+        echo "<script>window.open('index.php?view_fresh3c_products','_self')</script>";
     }
 }
 ?>

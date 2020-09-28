@@ -83,14 +83,16 @@
 					</a>
                 </div>
                 <figcaption class="info-wrap">
-                    <h6 class="title text-dots"><a href="'.$pro_url.'">'.$pro_title.'</a></h6>
+					<h6 class="title text-dots"><a href="'.$pro_url.'">'.$pro_title.'</a></h6>
+					<div class="price-wrap h5">
+						<span class="price-new">Rs. '.$pro_price.'</span>                            
+					</div>
                     <div class="action-wrap">
-						<a href="'.$pro_url.'" class="btn btn-primary btn-sm float-right"> View details </a>
-						<a href="'.$pro_url.'" class="btn btn-primary btn-sm float-right mr-2"> Add to cart </a>
-                        <div class="price-wrap h5">
-                            <span class="price-new">'.$pro_price.'</span>                            
-                        </div> 
-                    </div>
+						<a href="'.$pro_url.'" class="btn btn-secondary float-right" style="background:white;color:#041e41"> View details </a>
+						<form action="add-cart.php" method="post">
+							<button type="submit" name="add_cart" class="btn float-left" style="background:#041e41;color:white"> Add to cart </button>
+						</form>
+					</div>					
                 </figcaption>
             </figure>
 		</div>';

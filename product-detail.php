@@ -1,8 +1,8 @@
 <?php
-include("includes/top.php");
-include("includes/db.php");
-include("includes/header.php");
-include("functions/functions.php");
+include_once("includes/top.php");
+include_once("includes/db.php");
+include_once("includes/header.php");
+//include("functions/functions.php");
 ?>
 <body class="product-detail-body">
     <div class="page px-lg-5">
@@ -76,9 +76,11 @@ include("functions/functions.php");
                             <h4 class="preview-product-title"><?= $pro_title ?></h4>
                         </div>        
                         <p class="product-rate">Rs <?= $pro_price; ?><span class="offer-rate">Exclusive all rates</span></p>
+                        
+                    <form action="" method="post">
                         <div class="btn-toolbar btn-product-action" role="toolbar" aria-label="groups">
                             <div class="btn-group mr-4" role="group" aria-label="Second group">
-                                <button type="button" class="btn btn-secondary add-to-bag" style="font-size: 1rem;"><i class="fa fa-shopping-cart"></i> Add To Bag</button>
+                                <button type="submit" name="add_cart" class="btn btn-secondary add-to-bag" style="font-size: 1rem;"><i class="fa fa-shopping-cart"></i> Add To Bag</button>
                             </div>
                             <div class="btn-group mr-4" role="group" aria-label="group">
                                 <button type="button" class="btn btn-secondary wishlist" style="font-size: 1rem;"><i class="fa fa-heart" aria-hidden="true"></i> Wishlist</button>
@@ -87,6 +89,7 @@ include("functions/functions.php");
                                 <button type="button" class="btn btn-secondary buy-now" style="font-size: 1rem;">Buy Now</button>
                             </div>                 -->
                         </div>
+                    </form>
                         <!-- <div class="delivery-option">
                             <h3 class="delivery-title my-4">Deivery Option<i class="fa fa-truck" aria-hidden="true"></i></h3>
                             <p>Please enter PIN code to check delivery time & Pay on Delivery Availability</p>
@@ -126,11 +129,68 @@ include("functions/functions.php");
     </div>
 </section>
 <!-- End section product Detail -->
-
     <?php } ?>
-
     </div>
-
     <?php include_once 'includes/footer.php'; ?>
 </body>
 </html>
+
+<?php
+if(isset($_POST['add_cart'])){
+    $ip_add = getRealUserIp();
+    $p_id = $pro_id;
+    // $product_qty = $_POST['product_qty'];
+    // $product_size = $_POST['product_size'];
+    $check_product = "select * from cart where ip_add = '$ip_add' AND p_id = '$p_id'";
+    $run_check = mysqli_query($con,$check_product);
+    if(mysqli_num_rows($run_check)>0){
+        echo "<script>alert('This Product is already added in cart')</script>";
+        echo "<script>window.open('$pro_url','_self')</script>";
+    }else{
+        // $get_price = "select * from products where id='$p_id'";
+        // $run_price = mysqli_query($con,$get_price);
+        // $row_price = mysqli_fetch_array($run_price);
+        //$pro_price = $row_price['product_price'];
+        //$pro_psp_price = $row_price['product_psp_price'];
+        // $pro_label = $row_price['product_label'];
+        // if($pro_label == "Sale" or $pro_label == "Gift"){
+        //     $product_price = $pro_psp_price;
+        // }else{
+        //     $product_price = $pro_price;
+        // }
+        echo "<script>alert('This Product is added into cart')</script>";
+        $query = "insert into cart (p_id,ip_add) values ('$p_id','$ip_add')";
+        $run_query = mysqli_query($db,$query);
+        echo "<script>window.open('$pro_url','_self')</script>";
+    }
+}
+?>
+
+<?php
+if(isset($_POST['add_wishlist'])){
+	if(!isset($_SESSION['customer_email'])){
+		echo "<script>alert('You Must Login To Add Product In Wishlist')</script>";
+		echo "<script>window.open('checkout.php','_self')</script>";
+	}else{
+		$customer_session = $_SESSION['customer_email'];
+		$get_customer = "select * from customers where customer_email='$customer_session'";
+		$run_customer = mysqli_query($con,$get_customer);
+		$row_customer = mysqli_fetch_array($run_customer);
+		$customer_id = $row_customer['customer_id'];
+		$select_wishlist = "select * from wishlist where customer_id='$customer_id' AND product_id='$pro_id'";
+		$run_wishlist = mysqli_query($con,$select_wishlist);
+		$check_wishlist = mysqli_num_rows($run_wishlist);
+		if($check_wishlist == 1){
+			echo "<script>alert('This Product Has Been already Added In Wishlist')</script>";
+			echo "<script>window.open('$pro_url','_self')</script>";
+		}else{
+			$insert_wishlist = "insert into wishlist (customer_id,product_id) values ('$customer_id','$pro_id')";
+			$run_wishlist = mysqli_query($con,$insert_wishlist);
+			if($run_wishlist){
+				echo "<script> alert('Product Has Inserted Into Wishlist') </script>";
+				echo "<script>window.open('$pro_url','_self')</script>";
+			}
+		}
+	}
+}
+?>

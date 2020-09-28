@@ -1,4 +1,4 @@
-<?php include_once 'includes/top.php'; ?>
+<?php include_once 'includes/top.php'; ?>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,7 +46,7 @@
 </html>
 <?php
 if(isset($_POST['login'])){
-	include_once 'functions/functions_1.php';
+	include_once 'functions/functions.php';
 	include_once 'includes/db.php';
 	$customer_email = $_POST['c_email'];
 	$customer_pass = $_POST['c_pass'];
@@ -54,6 +54,7 @@ if(isset($_POST['login'])){
 	$run_customer = mysqli_query($con,$select_customer);
 	$res = mysqli_fetch_assoc($run_customer);
 	$customer_name = $res['customer_name'];
+	$customer_id = $res['customer_id'];
 	$get_ip = getRealUserIp();
 	$check_customer = mysqli_num_rows($run_customer);
 	$select_cart = "select * from cart where ip_add='$get_ip'";
@@ -66,12 +67,14 @@ if(isset($_POST['login'])){
 	if($check_customer==1 AND $check_cart==0){
 		$_SESSION['customer_email']=$customer_email;
 		$_SESSION['customer_name']=$customer_name;
+		$_SESSION['customer_id'] = $customer_id;
 		echo "<script>alert('You are Logged In')</script>";
 		echo "<script>window.open('my_account.php?my_orders','_self')</script>";
 	}
 	else {
 		$_SESSION['customer_email']=$customer_email;
 		$_SESSION['customer_name']=$customer_name;
+		$_SESSION['customer_id'] = $customer_id;
 		echo "<script>alert('You are Logged In')</script>";
 		echo "<script>window.open('checkout.php','_self')</script>";
 	} 

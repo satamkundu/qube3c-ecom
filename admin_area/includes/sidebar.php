@@ -98,6 +98,29 @@
                 </ul>
             </li><!-- Products li Ends -->
 
+            <li><!-- Products li Starts -->
+                <a href="#" data-toggle="collapse" data-target="#fresh3c">
+                    <i class="fa fa-fw fa-table"></i> Fresh3c 
+                    <i class="fa fa-fw fa-caret-down"></i>
+                </a>
+
+                <ul id="fresh3c" class="collapse">
+                    <li>
+                        <a href="index.php?insert_fresh3c_category"> Insert Fresh3c Category </a>
+                    </li>
+                    <li>
+                        <a href="index.php?view_fresh3c_category"> View Fresh3c Category </a>
+                    </li>
+                    <li>
+                        <a href="index.php?insert_fresh3c_product"> Insert Fresh3c Products </a>
+                    </li>
+                    
+                    <li>
+                        <a href="index.php?view_fresh3c_products"> View Fresh3c Products </a>
+                    </li>
+                </ul>
+            </li><!-- Products li Ends -->
+
             <li><!-- Brought Togather li Starts -->
                 <a href="#" data-toggle="collapse" data-target="#brought_togather"><!-- anchor Starts -->
                     <i class="fa fa-fw fa-briefcase"></i> Manage Brought Togather

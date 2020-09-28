@@ -63,6 +63,11 @@
                         if(isset($_GET['delete_product'])){include("delete_product.php");}
                         if(isset($_GET['edit_product'])){include("edit_product.php");}
 
+                        if(isset($_GET['insert_fresh3c_product'])){include("insert_fresh3c_product.php");}
+                        if(isset($_GET['view_fresh3c_products'])){include("view_fresh3c_products.php");}
+                        if(isset($_GET['insert_fresh3c_category'])){include("insert_fresh3c_category.php");}
+                        if(isset($_GET['view_fresh3c_category'])){include("view_fresh3c_category.php");}
+
                         if(isset($_GET['insert_p_cat'])){include("insert_p_cat.php");}
                         if(isset($_GET['view_p_cats'])){include("view_p_cats.php");}
                         if(isset($_GET['delete_p_cat'])){include("delete_p_cat.php");}

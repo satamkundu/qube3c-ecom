@@ -27,9 +27,9 @@ if($_POST){
     
     $product_title = $_POST['product_title'];
     $product_url = $_POST['product_url'];
-    $manufacturer = $_POST['manufacturer'];
-    $product_cat = $_POST['product_cat'];
-    $cat = $_POST['cat'];
+    //$manufacturer = $_POST['manufacturer'];
+    //$product_cat = $_POST['product_cat'];
+    //$cat = $_POST['cat'];
     
     $product_keywords = $_POST['product_keywords'];
     $product_desc = $_POST['product_desc'];
@@ -54,27 +54,22 @@ if($_POST){
     }
 
     $product_img1 = $_FILES['product_img1']['name'];
-    $newfilename1 = round(microtime(true)) . '.' . end($product_img1);
-
     $product_img2 = $_FILES['product_img2']['name'];
-    $newfilename2 = round(microtime(true)) . '.' . end($product_img2);
-
     $product_img3 = $_FILES['product_img3']['name'];
-    $newfilename3 = round(microtime(true)) . '.' . end($product_img3);
 
-    // $temp_name1 = $_FILES['product_img1']['tmp_name'];
-    // $temp_name2 = $_FILES['product_img2']['tmp_name'];
-    // $temp_name3 = $_FILES['product_img3']['tmp_name'];
-
-    // $temp = explode(".", $_FILES["file"]["name"]);
-    // $newfilename = round(microtime(true)) . '.' . end($temp);
-    // move_uploaded_file($_FILES["file"]["tmp_name"], "../img/imageDirectory/" . $newfilename);
+    $temp_name1 = $_FILES['product_img1']['tmp_name'];
+    $temp_name2 = $_FILES['product_img2']['tmp_name'];
+    $temp_name3 = $_FILES['product_img3']['tmp_name'];
     
 
-    if(move_uploaded_file($temp_name1,"../product_images/$newfilename1") && move_uploaded_file($temp_name2,"../product_images/$newfilename2") && move_uploaded_file($temp_name3,"../product_images/$newfilename3")){
-        $sql = "INSERT INTO `products` (`product_id`, `p_cat_id`, `cat_id`, `manufacturer_id`, `date`, `product_title`, `product_url`, `product_img1`, `product_img2`, `product_img3`, `product_desc`, `product_features`, `product_keywords`, `product_label`, `brought_togather_product_id`, `brought_togather`, `user_id`) VALUES ('$product_id', '$product_cat', '$cat', '$manufacturer', '$date', '$product_title', '$product_url', '$newfilename1', '$newfilename2', '$newfilename3', '$product_desc', '$product_features', '$product_keywords', '$product_label', '0', 'no', '$user_id')";
+    if(move_uploaded_file($temp_name1,"../product_images/$product_img1") && move_uploaded_file($temp_name2,"../product_images/$product_img2") && move_uploaded_file($temp_name3,"../product_images/$product_img3")){
+        $sql = "INSERT INTO `products` (`product_id`, `p_cat_id`, `cat_id`, `manufacturer_id`, `date`, `product_title`, `product_url`, `product_img1`, `product_img2`, `product_img3`, `product_desc`, `product_features`, `product_keywords`, `product_label`, `brought_togather_product_id`, `brought_togather`, `user_id`) VALUES ('$product_id', '$product_cat', '$cat', '$manufacturer', '$date', '$product_title', '$product_url', '$product_img1', '$product_img2', '$product_img3', '$product_desc', '$product_features', '$product_keywords', '$product_label', '0', 'no', '$user_id')";
         if(mysqli_query($con, $sql)){
             $last_inserted_id = mysqli_insert_id($con);
+
+            $sql_product_type_store = "INSERT INTO `product_type` (`product_type`, `product_table_id`) VALUES ('fresh', '$last_inserted_id')";
+            mysqli_query($con, $sql_product_type_store);
+
             $sql_has_variant = "INSERT INTO `has_variant` (`product_id`, `value`) VALUES ('$last_inserted_id', '$has_variant')";
             if(mysqli_query($con, $sql_has_variant)){
                 $process = "0";
@@ -128,6 +123,6 @@ if($_POST){
             }
         }
     }
-    echo "Product Uploded Successfully";
+    echo "Fresh3c Product Uploded Successfully";
 }
 ?>
