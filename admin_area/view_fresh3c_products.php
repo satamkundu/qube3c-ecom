@@ -34,8 +34,8 @@ if(!isset($_SESSION['admin_email'])){
                                 <th>Product Keywords</th>
                                 <th>Product Date</th>
                                 <th>Product Quantity</th>
-                                <!--<th>Product Delete</th>-->
-                                <!--<th>Product Edit</th>-->
+                                <th>Product Delete</th>-->
+                                <th>Product Edit</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -75,16 +75,16 @@ if(!isset($_SESSION['admin_email'])){
                                 <td> <?php echo $pro_keywords; ?> </td>
                                 <td><?php echo $pro_date; ?></td>
                                 <td><?php echo $pro_qty; ?></td>
-                                <!--<td>-->
-                                <!--    <a href="index.php?delete_fresh3c_product=<?php echo $pro_id; ?>">-->
-                                <!--        <i class="fa fa-trash-o"> </i> Delete-->
-                                <!--    </a>-->
-                                <!--</td>-->
-                                <!--<td>-->
-                                <!--    <a href="index.php?edit_fresh3c_product=<?php echo $pro_id; ?>">-->
-                                <!--        <i class="fa fa-pencil"> </i> Edit-->
-                                <!--    </a>-->
-                                <!--</td>-->
+                                <td>
+                                   <a href="index.php?delete_fresh3c_product=<?php echo $pro_id; ?>">-->
+                                       <i class="fa fa-trash-o"> </i> Delete
+                                    </a>
+                                </td>
+                                <td>
+                                   <a href="index.php?edit_fresh3c_product=<?php echo $pro_id; ?>">
+                                       <i class="fa fa-pencil"> </i> Edit
+                                   </a>
+                                </td>
                             </tr>
                             <?php }} ?>
                         </tbody>
