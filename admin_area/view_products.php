@@ -42,7 +42,7 @@ if(!isset($_SESSION['admin_email'])){
                             <?php
                                 $user_id = $_SESSION['admin_qube_id'];
                                 $i = 0;
-                                $get_pro = "SELECT products.product_id AS prod_id, products.*, product_master.* FROM products INNER JOIN product_master ON products.id = product_master.product_id AND product_master.uploaded_by_user_id = '$user_id'";
+                                $get_pro = "SELECT products.product_id AS prod_id, products.*, product_master.* FROM products INNER JOIN product_master ON products.id = product_master.product_id AND product_master.uploaded_by_user_id = '$user_id'  AND prod_type = 'normal'";
                                 $run_pro = mysqli_query($con,$get_pro);
                                 while($row_pro=mysqli_fetch_array($run_pro)){
                                     $pro_id = $row_pro['product_id'];

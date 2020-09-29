@@ -53,22 +53,41 @@ if($_POST){
         $variant_original_data = $_POST['variant_original_data'];
     }
 
-    $product_img1 = $_FILES['product_img1']['name'];
-    $product_img2 = $_FILES['product_img2']['name'];
-    $product_img3 = $_FILES['product_img3']['name'];
+    $product_img1 = explode(".", $_FILES["product_img1"]["name"]);
+    $newfilename1 = round(microtime(true)) . mt_rand() . '.' . end($product_img1);
+
+    $product_img2 = explode(".", $_FILES["product_img2"]["name"]);
+    $newfilename2 = round(microtime(true)) . mt_rand() . '.' . end($product_img2);
+
+    $product_img3 = explode(".", $_FILES["product_img3"]["name"]);
+    $newfilename3 = round(microtime(true)) . mt_rand() . '.' . end($product_img3);
 
     $temp_name1 = $_FILES['product_img1']['tmp_name'];
     $temp_name2 = $_FILES['product_img2']['tmp_name'];
     $temp_name3 = $_FILES['product_img3']['tmp_name'];
-    
 
-    if(move_uploaded_file($temp_name1,"../product_images/$product_img1") && move_uploaded_file($temp_name2,"../product_images/$product_img2") && move_uploaded_file($temp_name3,"../product_images/$product_img3")){
-        $sql = "INSERT INTO `products` (`product_id`, `p_cat_id`, `cat_id`, `manufacturer_id`, `date`, `product_title`, `product_url`, `product_img1`, `product_img2`, `product_img3`, `product_desc`, `product_features`, `product_keywords`, `product_label`, `brought_togather_product_id`, `brought_togather`, `user_id`) VALUES ('$product_id', '$product_cat', '$cat', '$manufacturer', '$date', '$product_title', '$product_url', '$product_img1', '$product_img2', '$product_img3', '$product_desc', '$product_features', '$product_keywords', '$product_label', '0', 'no', '$user_id')";
+    $category_ids = $_POST['header_menu'];
+   
+
+    if(move_uploaded_file($temp_name1,"../product_images/$newfilename1") && move_uploaded_file($temp_name2,"../product_images/$newfilename2") && move_uploaded_file($temp_name3,"../product_images/$newfilename3")){
+        $sql = "INSERT INTO `products` (`product_id`, `date`, `product_title`, `product_url`, `product_img1`, `product_img2`, `product_img3`, `product_desc`, `product_features`, `product_keywords`, `product_label`, `brought_togather_product_id`, `brought_togather`, `user_id`, `prod_type`) VALUES ('$product_id', '$date', '$product_title', '$product_url', '$newfilename1', '$newfilename2', '$newfilename3', '$product_desc', '$product_features', '$product_keywords', '$product_label', '0', 'no', '$user_id', 'fresh3c')";
         if(mysqli_query($con, $sql)){
             $last_inserted_id = mysqli_insert_id($con);
 
-            $sql_product_type_store = "INSERT INTO `product_type` (`product_type`, `product_table_id`) VALUES ('fresh', '$last_inserted_id')";
-            mysqli_query($con, $sql_product_type_store);
+            // $sql_product_type_store = "INSERT INTO `product_type` (`product_type`, `product_table_id`) VALUES ('fresh', '$last_inserted_id')";
+            // if(mysqli_query($con, $sql_product_type_store)){
+            //     $last_type_id = mysqli_insert_id($con);
+                // foreach ($category_ids as $value) {
+                //     $sql_product_type_store = "INSERT INTO `product_type_with_cat` (`pro_fresh_cat_id`, `product_id`) VALUES ('$value', '$last_inserted_id')";
+                //     mysqli_query($con, $sql_product_type_store);    
+                // }               
+            //} 
+            
+            for ($index = 0; $index < count($category_ids); $index++){
+                $ids = $category_ids[$index];
+                $sql_product_type_store = "INSERT INTO `product_type_with_cat` (`pro_fresh_cat_id`, `pro_id`) VALUES ('$ids', '$last_inserted_id')";
+                mysqli_query($con, $sql_product_type_store);   
+            }
 
             $sql_has_variant = "INSERT INTO `has_variant` (`product_id`, `value`) VALUES ('$last_inserted_id', '$has_variant')";
             if(mysqli_query($con, $sql_has_variant)){

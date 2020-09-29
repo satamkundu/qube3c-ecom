@@ -94,151 +94,47 @@
 			<!-- Explore By Category section -->
 			<section class="explore-by-category py-3 mt-4 mb-5 px-lg-4">
 				<div class="container-fluid">
-							<div class="row">
-								
-								<div class="col-lg-12">
-									<h3 class="cat-title">Explore By Category</h3>
-									<p class="cat-des mb-5">We have everything you need</p>
-								</div>
-							</div>
-
-						<div class="row text-center text-lg-left">
-<?php
-	include_once 'includes/db.php';
-	$sql = "SELECT * FROM fresh_3c_items";
-	$res = mysqli_query($con, $sql);
-	if(mysqli_num_rows($res)>0){
-		while($row = mysqli_fetch_assoc($res)){
-			$title = $row['title'];
-			$id = $row['id'];
-			$sql = "SELECT COUNT() FROM fresh_3c_products";
-			$res = mysqli_query($con, $sql);
-		}
-	}
-
-?>
-							<div class="col-lg-3 col-md-4 col-6 mb-5">
-							<a href="#category-id" class="d-block mb-4 h-100 category-link">
-									<img class="img-fluid" src="images/fresh3c/12.jpg" style="height: fit-content;" alt="">
-									<div class="product-cat-meta text-center text-white">
-									<h2 class="cat-name m-0">Chicken</h2>
-									<p><span class="products-count">12 </span>Products</p>
-								</div>
-							</a>
-							</div>
-
-							<div class="col-lg-3 col-md-4 col-6 mb-5">
-							<a href="#category-id" class="d-block mb-4 h-100 category-link">
-									<img class="img-fluid" src="images/fresh3c/muttonchops.jpg" alt="">
-									<div class="product-cat-meta text-center text-white">
-									<h2 class="cat-name  m-0">Mutton</h2>
-									<p><span class="products-count">04 </span>Products</p>
-								</div>
-							</a>
-							</div>
+					<div class="row">
 						
-						<div class="col-lg-3 col-md-4 col-6 mb-5">
-							<a href="#category-id" class="d-block mb-4 h-100 category-link">
-									<img class="img-fluid" src="images/fresh3c/eggs.jpg" alt="">
-									<div class="product-cat-meta text-center text-white">
-									<h2 class="cat-name m-0">Eggs</h2>
-									<p><span class="products-cat-count">04 </span>Products</p>
-								</div>
-							</a>
-							</div> 
-
-							<div class="col-lg-3 col-md-4 col-6 mb-5">
-							<a href="#category-id" class="d-block mb-4 h-100 category-link">
-									<img class="img-fluid" src="images/fresh3c/fresh.jpg" alt="">
-									<div class="product-cat-meta text-center text-white">
-									<h2 class="cat-name m-0">Sea Food</h2>
-									<p><span class="products-cat-count">04 </span>Products</p>
-								</div>
-							</a>
-							</div> 
-
-							<div class="col-lg-3 col-md-4 col-6 mb-5">
-							<a href="#category-id" class="d-block mb-4 h-100 category-link">
-									<img class="img-fluid" src="images/fresh3c/milk.jpg" alt="">
-									<div class="product-cat-meta text-center text-white">
-									<h2 class="cat-name m-0">Milk Products</h2>
-									<p><span class="products-count">12 </span>Products</p>
-								</div>
-							</a>
-							</div>
-							<div class="col-lg-3 col-md-4 col-6 mb-5">
-							<a href="#category-id" class="d-block mb-4 h-100 category-link">
-									<img class="img-fluid" src="images/fresh3c/tea.jpg" alt="">
-									<div class="product-cat-meta text-center text-white">
-									<h2 class="cat-name  m-0">Tea</h2>
-									<p><span class="products-count">09 </span>Products</p>
-								</div>
-							</a>
-							</div>
-						
-						<div class="col-lg-3 col-md-4 col-6 mb-5">
-							<a href="#category-id" class="d-block mb-4 h-100 category-link">
-									<img class="img-fluid" src="images/fresh3c/local.png" alt="">
-									<div class="product-cat-meta text-center text-white">
-									<h2 class="cat-name m-0">Local Herbes</h2>
-									<p><span class="products-cat-count">04 </span>Products</p>
-								</div>
-							</a>
-							</div> 
-
-							<div class="col-lg-3 col-md-4 col-6 mb-5">
-							<a href="#category-id" class="d-block mb-4 h-100 category-link">
-									<img class="img-fluid" src="images/fresh3c/vegetable.jpg" alt="">
-									<div class="product-cat-meta text-center text-white">
-									<h2 class="cat-name m-0">Green Vegies</h2>
-									<p><span class="products-cat-count">04 </span>Products</p>
-								</div>
-							</a>
-							</div> 
-
-							<div class="col-lg-3 col-md-4 col-6 mb-5">
-							<a href="#category-id" class="d-block mb-4 h-100 category-link">
-									<img class="img-fluid" src="images/fresh3c/oil.jpeg" alt="">
-									<div class="product-cat-meta text-center text-white">
-									<h2 class="cat-name m-0">Oil</h2>
-									<p><span class="products-cat-count">04 </span>Products</p>
-								</div>
-							</a>
-							</div> 
-							<div class="col-lg-3 col-md-4 col-6 mb-5">
-							<a href="#category-id" class="d-block mb-4 h-100 category-link">
-									<img class="img-fluid" src="images/fresh3c/rice.jpg" alt="">
-									<div class="product-cat-meta text-center text-white">
-									<h2 class="cat-name m-0">Rice</h2>
-									<p><span class="products-cat-count">04 </span>Products</p>
-								</div>
-							</a>
-							</div> 
-							<div class="col-lg-3 col-md-4 col-6 mb-5">
-							<a href="#category-id" class="d-block mb-4 h-100 category-link">
-									<img class="img-fluid" src="images/fresh3c/milk.jpg" alt="">
-									<div class="product-cat-meta text-center text-white">
-									<h2 class="cat-name m-0">Home Made Mesala</h2>
-									<p><span class="products-count">12 </span>Products</p>
-								</div>
-							</a>
-							</div>
-						<div class="col-lg-3 col-md-4 col-6 mb-5">
-							<a href="#category-id" class="d-block mb-4 h-100 category-link">
-									<img class="img-fluid" src="images/fresh3c/Chicken-Mince.jpg" alt="">
-									<div class="product-cat-meta text-center text-white">
-									<h2 class="cat-name m-0">Chicken Mince</h2>
-									<p><span class="products-count">20 </span>Products</p>
-								</div>
-							</a>
-							</div>
+						<div class="col-lg-12">
+							<h3 class="cat-title">Explore By Category</h3>
+							<p class="cat-des mb-5">We have everything you need</p>
 						</div>
-			</div>
+					</div>
+
+					<div class="row text-center text-lg-left">
+						<?php
+							include_once 'includes/db.php';
+							$sql = "SELECT * FROM fresh_3c_items";
+							$res = mysqli_query($con, $sql);
+							if(mysqli_num_rows($res)>0){
+								while($row = mysqli_fetch_assoc($res)){
+									$title = $row['title'];
+									$id = $row['id'];
+									$image = $row['image_add'];
+									$sql1 = "SELECT id FROM product_type_with_cat WHERE pro_fresh_cat_id = '$id'";
+									$num1 = mysqli_num_rows(mysqli_query($con, $sql1));
+									?>
+									<div class="col-lg-3 col-md-4 col-6 mb-5">
+										<a href="fresh3c-cat-product.php?id=<?=$id?>" class="d-block mb-4 h-100 category-link">
+												<img class="img-fluid" src="admin_area/fresc3c_category_images/<?=$image?>" style="height: fit-content;" alt="">
+												<div class="product-cat-meta text-center text-white">
+												<h2 class="cat-name m-0"><?=$title?></h2>
+												<p><span class="products-count"><?=$num1?></span> Products</p>
+											</div>
+										</a>
+									</div>
+								<?php
+								}
+							}
+						?>							
+					</div>
+				</div>
 			</section>
 			<!-- End Explore By Category section -->
 
 			<!-- Best Selling section -->
-			<section class="best-selling py-3 px-lg-4">
+			<!-- <section class="best-selling py-3 px-lg-4">
 				<div class="container-fluid">
 					<div class="row">			
 						<div class="col-lg-12">
@@ -312,11 +208,11 @@
 					</div>
 					</div>
 				</div>
-			</section>
+			</section> -->
 			<!-- Best Selling section -->
 
 			<!-- Best Selling section -->
-			<section class="best-selling py-3 px-lg-4">
+			<!-- <section class="best-selling py-3 px-lg-4">
 				<div class="container-fluid">
 					<div class="row">			
 						<div class="col-lg-12">
@@ -389,7 +285,7 @@
 					</div>
 					</div>
 				</div>
-			</section>
+			</section> -->
 			<!-- Best Selling section -->
 		</div>
 		<?php include_once 'includes/footer.php'; ?>

@@ -25,7 +25,7 @@ if(!isset($_SESSION['admin_email'])){
                 <div class="table-responsive" ><!-- table-responsive Starts -->
                     <table class="table table-bordered table-hover table-striped" ><!-- table table-bordered table-hover table-striped Starts -->
                         <thead>
-                            <tr style="font-size:1.2rem">
+                            <tr style="font-size:1.1rem">
                                 <th>Product ID</th>
                                 <th>Product Title</th>
                                 <th>Product Image</th>
@@ -34,20 +34,21 @@ if(!isset($_SESSION['admin_email'])){
                                 <th>Product Keywords</th>
                                 <th>Product Date</th>
                                 <th>Product Quantity</th>
-                                <th>Product Delete</th>
-                                <th>Product Edit</th>
+                                <!--<th>Product Delete</th>-->
+                                <!--<th>Product Edit</th>-->
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                                 $user_id = $_SESSION['admin_qube_id'];
                                 $i = 0;
-                                $get_pro = "SELECT products.product_id AS prod_id, products.*, product_master.* FROM products INNER JOIN product_master ON products.id = product_master.product_id AND product_master.uploaded_by_user_id = '$user_id'";
+                                $get_pro = "SELECT products.product_id AS prod_id, products.*, product_master.* FROM products INNER JOIN product_master ON products.id = product_master.product_id AND product_master.uploaded_by_user_id = '$user_id' AND prod_type = 'fresh3c'";
+                                $run_pro = mysqli_query($con,$get_pro);
+                                echo mysqli_num_rows($run_pro);
+                                while($row_pro=mysqli_fetch_array($run_pro)){
                                 $run_pro = mysqli_query($con,$get_pro);
                                 while($row_pro=mysqli_fetch_array($run_pro)){
                                     $pro_id = $row_pro['product_id'];
-
-                                    if(mysqli_num_rows(mysqli_query($con,"SELECT * FROM product_type WHERE product_table_id = '$pro_id'"))>0){
                                     $pro_id_original = $row_pro['prod_id'];
                                     $pro_title = $row_pro['product_title'];
                                     $pro_image = $row_pro['product_img1'];
@@ -74,16 +75,16 @@ if(!isset($_SESSION['admin_email'])){
                                 <td> <?php echo $pro_keywords; ?> </td>
                                 <td><?php echo $pro_date; ?></td>
                                 <td><?php echo $pro_qty; ?></td>
-                                <td>
-                                    <a href="index.php?delete_product=<?php echo $pro_id; ?>">
-                                        <i class="fa fa-trash-o"> </i> Delete
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="index.php?edit_product=<?php echo $pro_id; ?>">
-                                        <i class="fa fa-pencil"> </i> Edit
-                                    </a>
-                                </td>
+                                <!--<td>-->
+                                <!--    <a href="index.php?delete_fresh3c_product=<?php echo $pro_id; ?>">-->
+                                <!--        <i class="fa fa-trash-o"> </i> Delete-->
+                                <!--    </a>-->
+                                <!--</td>-->
+                                <!--<td>-->
+                                <!--    <a href="index.php?edit_fresh3c_product=<?php echo $pro_id; ?>">-->
+                                <!--        <i class="fa fa-pencil"> </i> Edit-->
+                                <!--    </a>-->
+                                <!--</td>-->
                             </tr>
                             <?php }} ?>
                         </tbody>

@@ -53,18 +53,18 @@ if($_POST){
         $variant_original_data = $_POST['variant_original_data'];
     }
 
-    $product_img1 = $_FILES['product_img1']['name'];
+    $product_img1 = explode(".", $_FILES["product_img1"]["name"]);
     $newfilename1 = round(microtime(true)) . '.' . end($product_img1);
 
-    $product_img2 = $_FILES['product_img2']['name'];
+    $product_img2 = explode(".", $_FILES["product_img2"]["name"]);
     $newfilename2 = round(microtime(true)) . '.' . end($product_img2);
 
-    $product_img3 = $_FILES['product_img3']['name'];
+    $product_img3 = explode(".", $_FILES["product_img3"]["name"]);
     $newfilename3 = round(microtime(true)) . '.' . end($product_img3);
 
-    // $temp_name1 = $_FILES['product_img1']['tmp_name'];
-    // $temp_name2 = $_FILES['product_img2']['tmp_name'];
-    // $temp_name3 = $_FILES['product_img3']['tmp_name'];
+    $temp_name1 = $_FILES['product_img1']['tmp_name'];
+    $temp_name2 = $_FILES['product_img2']['tmp_name'];
+    $temp_name3 = $_FILES['product_img3']['tmp_name'];
 
     // $temp = explode(".", $_FILES["file"]["name"]);
     // $newfilename = round(microtime(true)) . '.' . end($temp);

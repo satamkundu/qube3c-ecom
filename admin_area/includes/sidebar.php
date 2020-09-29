@@ -98,7 +98,7 @@
                 </ul>
             </li><!-- Products li Ends -->
 
-            <li><!-- Products li Starts -->
+            <li><!-- Fresh3c li Starts -->
                 <a href="#" data-toggle="collapse" data-target="#fresh3c">
                     <i class="fa fa-fw fa-table"></i> Fresh3c 
                     <i class="fa fa-fw fa-caret-down"></i>

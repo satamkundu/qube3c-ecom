@@ -1,4 +1,5 @@
 <?php
+include_once 'functions/functions.php';
 if(isset($_POST['add_cart'])){
     $ip_add = getRealUserIp();
     $p_id = $pro_id;

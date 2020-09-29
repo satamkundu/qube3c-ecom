@@ -33,7 +33,10 @@
 					<div class="alert alert-success" role="alert" id="show-response" style="display:none"></div>
 					<div class="text-center" style="display:none" id="loading-sec">
 						<img src="admin_images/assets/loading.gif">
-						<h4>Please Wait.....</h4>
+						<h4>Please Wait.....</h4>						
+					</div>
+					<div class="text-center" style="display:none" id="next-sec">
+						<h3>Want to Add New Product ? <a href="index.php?insert_product">Click Here</a></h3>
 					</div>
 					<div class="panel-body"><!-- panel-body Starts -->
 						<form class="form-horizontal" id="product_upload_form" method="post" enctype="multipart/form-data"><!-- form-horizontal Starts -->
@@ -326,7 +329,8 @@
 					$("#show-response").show();
 					$('#show-response').delay(5000).fadeOut('slow');
 					$("#loading-sec").hide();
-					$(".panel-body").show();
+					$(".panel-body").hide();
+					$("#next-sec").show();
 					$("#show-response").html(data);
 					$('#product_submit').prop('disabled', false);
 				},
